@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media/Form</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <article>
+            <h1>Simple Blog/Landing Page</h1>
+            <p>Create a simple blog or landing page using forms, media, metas <br> and accessibility best practices. Try
+                to use every HTML element/tag <br> discussed during the week. </p>
+        </article>
+        <article>
+            <header>
+                <h2>Media</h2>
+            </header>
+            <table>
+                <tr>
+                    <td><img src="https://media.istockphoto.com/id/1054569438/photo/extreme-close-up-of-leaf-vein-skeleton-against-washi-paper.jpg?s=2048x2048&w=is&k=20&c=F3eJfk6kiloeaKQ_wvnBU19AZW1Y0hjHQ_f5A31Fa3U="
+                            alt="Nature" width="300px"></td>
+                    <td>A forest with tall trees and sunlight shines through the leaves</td>
+                </tr>
+                <tr>
+                    <td><video width="300px" controls autoplay loop>
+                            <source src="nature.mp4" type="video/mp4">
+                        </video></td>
+                    <td>A video player with controls</td>
+                </tr>
+                <tr>
+                    <td><audio style="width:300px" controls autoplay muted>
+                            <source src="nature.mp3" type="audio/mp3">
+                        </audio></td>
+                    <td>An audio player with controls</td>
+                </tr>
+            </table>
+        </article>
+        <article>
+            <header>
+                <h2 style="display:inline">Form </h2><small>(action)</small>
+            </header>
+            <br><br>
+            <form action="">
+                <div>
+                    <label for="name">Name:</label>
+                    <input id="name" type="text" name="name">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input id="email" type="email" name="email">
+                </div>
+                <br>
+                <div>
+                    <label for="pass">Password:</label>
+                    <input id="pass" type="radio" name="pass">Password
+                </div>
+                <div>
+                    <label for="gender">Gender:</label>
+                    <input id="male" type="radio" name="gender">Male
+                    <input id="female" type="radio" name="gender">Female
+                </div>
+                <div>
+                    <label for="terms">Author:</label>
+                    <input id="terms" type="checkbox" name="terms">I agree to the terms
+                </div>
+                <br>
+                <div>
+                    <label for="files">Upload File:</label>
+                    <input id="files" type="file" name="files">
+                </div>
+                <br>
+                <div>
+                    <label for="comments">Comments:</label>
+                    <textarea name="comments" id="comments" rows="3" cols="20"></textarea>
+                </div>
+                <br>
+                <div>
+                    <label for="country">Country:</label>
+                    <select name="country" id="country">
+                        <option value="Armenia">Armenia</option>
+                        <option value="China">China</option>
+                        <option value="USA">USA</option>
+                    </select>
+                </div>
+            </form>
+        </article>
+    </main>
+    <footer>
+        <hr>
+        <p> &copy; 2024 Simple Blog</p>
+    </footer>
+</body>
+
+</html>
