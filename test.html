@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pseudo-Class Showcase</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    /* Link pseudo-classes */
+    a:link {
+      color: blue;
+    }
+
+    a:visited {
+      color: purple;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: orange;
+    }
+
+    a:active {
+      color: red;
+    }
+
+    /* Input focus & validation */
+    input:focus {
+      border: 2px solid royalblue;
+      background: #eef;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    /* Form state */
+    button:disabled {
+      background: gray;
+      color: white;
+      cursor: not-allowed;
+    }
+
+    /* Structural */
+    ul li:first-child {
+      font-weight: bold;
+    }
+
+    ul li:last-child {
+      color: green;
+    }
+
+    ul li:nth-child(even) {
+      background: #f3f3f3;
+    }
+
+    ul li:nth-child(odd) {
+      background: #e0e0e0;
+    }
+
+    div:empty {
+      border: 2px dashed red;
+      height: 20px;
+      margin-top: 10px;
+    }
+
+    /* :not(), :is(), :where() */
+    p:not(.highlight) {
+      color: gray;
+    }
+
+    section:is(.box, .card) {
+      border: 2px solid blue;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    div:focus-within {
+      background: #b6b618;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pseudo-Class Demo</h1>
+
+  <h2>Link States</h2>
+  <a href="https://example.com">Visit Example</a>
+
+  <h2>Form Input</h2>
+  <form>
+    <label>
+      Email:
+      <input type="email" required>
+    </label>
+    <br><br>
+    <button type="submit">Submit</button>
+    <button type="button" disabled>Disabled</button>
+  </form>
+
+  <h2>List Styling</h2>
+  <ul>
+    <li>Item One</li>
+    <li>Item Two</li>
+    <li>Item Three</li>
+    <li>Item Four</li>
+  </ul>
+
+  <h2>Empty Div</h2>
+  <div contenteditable></div>
+
+  <h2>:not() and :is()</h2>
+  <p>This is a normal paragraph.</p>
+  <p class="highlight">This is a highlighted paragraph.</p>
+
+  <section class="box">I'm a box</section>
+  <section class="card">I'm a card</section>
+
+  <h2>:focus-within</h2>
+  <div>
+    <label>Focus Me:
+      <input type="text">
+    </label>
+  </div>
+
+</body>
+</html>
