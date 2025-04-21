@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main class="jobApp">
+        <h1>Classy job application form</h1>
+        <div>
+            <form>
+                <label for="name">Name<br>
+                    <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" required /></label>
+
+                <label for="email">Email<br>
+                    <input type="email" id="email" name="email" placeholder="mail@example.com" autocomplete="off"
+                        required /></label>
+
+
+                <label for="phone">Phone<br>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" autocomplete="off" required /></label>
+
+
+                <label for="country">Country:<br>
+                    <select id="country" name="country" required>
+                        <option value="">Select country</option>
+                        <option value="us">United States</option>
+                        <option value="ca">Canada</option>
+                        <option value="uk">United Kingdom</option>
+                    </select></label>
+
+
+                <label for="position">What Position Are You Applying For?<br>
+                    <select id="position" name="position" required>
+                        <option value="job1">Job 1</option>
+                        <option value="job2">Job 2</option>
+                        <option value="job3">Job 3</option></label>
+                </select>
+
+                
+
+                <p>What is your current employment status?</p>
+                <div class="status">
+                    <div>
+                        <input type="radio" name="status" id="employed" value="Employed">
+                        <label for="employed">Employed</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="self-employed" value="Self-Employed">
+                        <label for="self-employed">Self-Employed</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="unemployed" value="Unemployed">
+                        <label for="unemployed">Unemployed</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="status" id="student" value="Student">
+                        <label for="student">Student</label>
+                    </div>
+                </div>
+
+                <label for="resume">Upload your resume<br>
+                    <input type="file" name="resume" id="resume" hidden></label>
+
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </main>
+</body>
+
+</html>
