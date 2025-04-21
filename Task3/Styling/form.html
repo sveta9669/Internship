@@ -14,16 +14,17 @@
         <div>
             <form>
                 <label for="name">Name<br>
-                    <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" required /></label>
+                    <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" required />
+                </label>
 
                 <label for="email">Email<br>
                     <input type="email" id="email" name="email" placeholder="mail@example.com" autocomplete="off"
-                        required /></label>
-
+                        required />
+                </label>
 
                 <label for="phone">Phone<br>
-                    <input type="tel" id="phone" name="phone" placeholder="Phone" autocomplete="off" required /></label>
-
+                    <input type="tel" id="phone" name="phone" placeholder="Phone" autocomplete="off" required />
+                </label>
 
                 <label for="country">Country:<br>
                     <select id="country" name="country" required>
@@ -31,8 +32,8 @@
                         <option value="us">United States</option>
                         <option value="ca">Canada</option>
                         <option value="uk">United Kingdom</option>
-                    </select></label>
-
+                    </select>
+                </label>
 
                 <label for="position">What Position Are You Applying For?<br>
                     <select id="position" name="position" required>
@@ -40,8 +41,6 @@
                         <option value="job2">Job 2</option>
                         <option value="job3">Job 3</option></label>
                 </select>
-
-                
 
                 <p>What is your current employment status?</p>
                 <div class="status">
@@ -63,8 +62,10 @@
                     </div>
                 </div>
 
-                <label for="resume">Upload your resume<br>
-                    <input type="file" name="resume" id="resume" hidden></label>
+                <p>Upload your resume</p>
+                <label for="resume">Resume<br>
+                    <input type="file" name="resume" id="resume" hidden>
+                </label>
 
                 <button type="submit">Send</button>
             </form>
