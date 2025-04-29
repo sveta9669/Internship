@@ -1,0 +1,65 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+    color: rgb(255, 255, 255, 0.7);
+}
+img {width: 50%;}
+body {
+    display: grid;
+    grid-template-areas: 
+    'left header header header header'
+    'left main main main main'
+    'left main main main main'
+    'left main main main main'
+    'left main main main main';
+    padding: 15px;
+    background-color: #23242a;
+
+}
+
+header {
+    grid-area: header;
+    padding: 15px;
+    border-bottom: 1px solid rgb(255, 255, 255, 0.2);;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas:  'ovw pt pt mod'
+    'ovw pt pt lvl'
+    'ovw qt qt lvl'
+    'trp qt qt rwd'
+    'trp qt qt rwd'
+    'st tk eng edr'
+    'st tk eng edr';
+    gap: 15px;
+    padding: 15px;
+}
+
+aside {
+    grid-area: left;
+    background-color: #151419;
+    padding: 15px;
+}
+
+main > div {
+    /* height: 250px; */
+    background-color: #000000;
+    padding: 10px;
+}
+.overview { grid-area: ovw;}
+.trophies { grid-area: trp;}
+.stats { grid-area: st;}
+.points { grid-area: pt ;}
+.quests { grid-area: qt ;}
+.tokens { grid-area: tk ;}
+.energy { grid-area: eng ;}
+.mode { grid-area: mod;}
+.level { grid-area: lvl;}
+.reward { grid-area: rwd;}
+.endorsements { grid-area: edr;}
