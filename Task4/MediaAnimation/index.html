@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Page</title>
     <link rel="stylesheet" href="style.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 
 <body>
@@ -20,8 +22,8 @@
         <div class="menu">
             <ul>
                 <li>5</li>
-                <li>10</li>
-                <li>34</li>
+                <li><img src="hero.png" alt="">10</li>
+                <li><img src="minus.png" alt="" srcset="">34</li>
                 <li>3456</li>
             </ul>
             <img src="person.png" alt="Mini person">
@@ -30,7 +32,9 @@
     <main>
         <div class="overview">
             <h1>Overview</h1>
-            <img src="person.png" alt="Person">
+            <div>
+                <img src="person.png" alt="Person">
+            </div>
         </div>
         <div class="trophies">
             <p>Trophies</p>
@@ -39,11 +43,17 @@
                 <p>Kudo Lover</p>
             </div>
             <p>You sent 10 kudos</p>
+            <p>
+                <img src="hero.png" alt="">1
+                <img src="minus.png" alt="">2
+            </p>
         </div>
         <div class="stats">
             <p>Global Stats</p>
-            <p class="number">345</p>
-            <p>Task completed</p>
+            <div>
+                <p class="number">345</p>
+                <p>Task completed</p>
+            </div>
             <p>&#8882;&nbsp;&#8883;</p>
         </div>
         <div class="points">
@@ -68,22 +78,25 @@
         </div>
         <div class="tokens">
             <p>Your tokens</p>
-            <p><img src="" alt="">
-            <p class="number">34</p>
-            </p>
-            <p>Exchange your tokens on real gifts!</p>
+            <p class="number"><img src="minus.png" alt="">34</p>
+            <p>Exchange your tokens on <br> real gifts!</p>
             <button>Spend Tokens</button>
         </div>
         <div class="energy">
             <p>Energy</p>
-            <p><img src="" alt="">
-            <p class="number">10</p>
-            </p>
-            <p>Use your energy to give <br>kudos to other!</p>
+            <div>
+                <p class="number"><img src="hero.png" alt="">10</p>
+                <p>Use your energy to give <br>kudos to other!</p>
+            </div>
             <button>Browse people</button>
         </div>
         <div class="mode">
             <p>Allimghty admin mode</p>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
         </div>
         <div class="level">
             <p>My Level</p>
@@ -95,11 +108,13 @@
         </div>
         <div class="reward">
             <p>Daily Reward</p>
-            <img src="" alt="Cup">
+            <img src="cup.png" alt="Cup">
             <p>Morning coffee</p>
             <div>
-                <p><img src="" alt="">1</p>
-                <p><img src="" alt="">1</p>
+                <p>
+                    <img src="hero.png" alt="">1
+                    <img src="minus.png" alt="">2
+                </p>
             </div>
             <button>Collect</button>
         </div>
@@ -112,6 +127,7 @@
             <p class="number">212 <span>+1</span></p>
             <p>Leadership</p>
         </div>
+        <button>&#8883;</button>
     </main>
     <aside>
         <div class="logo">

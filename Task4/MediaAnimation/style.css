@@ -3,7 +3,8 @@
     padding: 0;
     border: 0;
     box-sizing: border-box;
-    color: rgb(255, 255, 255, 0.7);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(255, 255, 255, 0.7);
 }
 
 ul {
@@ -27,8 +28,19 @@ body {
     background-color: #23242a;
 }
 
-
 /* Header */
+
+@keyframes headerIn {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 header {
     grid-area: header;
@@ -37,14 +49,24 @@ header {
     align-items: center;
     padding: 10px;
     border-bottom: 1px solid rgb(255, 255, 255, 0.2);
+    animation: headerIn 0.7s ease-out;
+
 }
 
 header ul {
     display: flex;
 }
 
+header div:first-child li {
+    font-weight: bold;
+    color: #b64379;
+}
+
 header ul li {
     height: max-content;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     margin: 2px 5px;
     padding: 5px 15px;
     border-radius: 15px;
@@ -55,40 +77,94 @@ header .menu {
     display: flex;
 }
 
-header img {
+header .menu ul img {
+    height: 20px;
+    margin-right: 5px;
+}
+
+header div>img {
     width: 30px;
     margin-left: 20px;
 }
 
 /* Header End */
 
+
+
 /* Left Side */
+
+@keyframes leftSideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
 aside {
+    height: 115vh;
     grid-area: left;
     background-color: #151419;
-    padding: 15px;
+    padding: 0 15px 15px;
+    animation: leftSideIn 0.7s ease-in;
+}
+
+.logo {
+    height: 7%;
+}
+
+.logo p {
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #b64379, #5640c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dogAnimation {
+    height: 5%;
 }
 
 .menuA ul li {
     margin: 10px;
     padding: 5px;
 }
+
 .menuA::-webkit-scrollbar {
     display: none;
-  }
+}
+
 .menuA::-webkit-scrollbar-thumb {
     width: 10px;
     background: #f1f1f1;
 }
 
 .menuA {
-    max-height: 200px;
+    height: 30%;
+    min-height: 150px;
+    max-height: 300px;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.menuB {}
+.menuB {
+    height: 55%;
+}
 
+.menuB ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    
+}
+
+/* Dog head animation */
 @keyframes dogAnim {
     0% {
         transform: rotate(0deg);
@@ -104,7 +180,7 @@ aside {
 }
 
 .dogAnimation img {
-    width: 60px;
+    width: 80px;
 }
 
 .dogAnimation img:hover {
@@ -115,6 +191,17 @@ aside {
 
 
 /* Main */
+@keyframes mainIn {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
 
 main {
     grid-area: main;
@@ -128,24 +215,105 @@ main {
         'st tk eng edr';
     gap: 15px;
     padding: 15px;
+    animation: mainIn 1.5s ease-in-out;
 }
 
-main > div {
+/* @keyframes leftMenu {
+    from {
+        display: none;
+    }
+
+    to {
+        display: block;
+        position: absolute;
+    }
+} */
+
+main>button:last-child {
+    display: none;
+    width: 30px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: #151419;
+    font-size: 40px;
+}
+
+main>div {
     padding: 10px;
     border-radius: 10px;
     background-color: #000000;
 }
 
+main>div .number {
+    color: #fff;
+    font-weight: bold;
+    font-size: 35px;
+
+}
+
 .overview {
     grid-area: ovw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: none;
+    padding: 0;
+    color: #fff !important;
+    text-align: center;
+}
+
+.overview div {
+    width: 100%;
+    height: 55%;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #b64379, #5640c3);
+}
+
+.overview h1 {
+    text-align: left;
+    color: #fff;
+
+}
+
+.overview img {
+    height: 140%;
+    transform: translateY(-80px);
 }
 
 .trophies {
     grid-area: trp;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.trophies img[alt="Duck"] {
+    transform: translateY(-47px);
+}
+
+.trophies p:last-child img {
+    width: 15px;
+}
+
+
+.trophies>div {
+    margin: 25px auto;
+    height: 50%;
+    width: 90%;
+    border-radius: 10px;
+    background: rgba(128, 128, 128, 0.5);
+    text-align: center;
 }
 
 .stats {
     grid-area: st;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .points {
@@ -158,26 +326,211 @@ main > div {
 
 .tokens {
     grid-area: tk;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+
+.tokens>button,
+.reward>button {
+    width: 70%;
+    height: 30px;
+    border-radius: 15px;
+    background: #ffb42b;
+    align-self: center;
+    font-size: 16px;
+}
+
+.tokens img {
+    width: 25px;
 }
 
 .energy {
     grid-area: eng;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.energy>button {
+    width: 70%;
+    height: 30px;
+    border-radius: 15px;
+    background: rgba(128, 128, 128, 0.5);
+    align-self: center;
+    font-size: 16px;
+}
+
+.energy img {
+    width: 30px;
 }
 
 .mode {
     grid-area: mod;
+    display: flex;
+    justify-content: space-between;
+}
+
+.mode .switch {
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 28px;
+}
+
+.mode .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.mode .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.mode .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.mode input:checked+.slider {
+    background-color: #5640c3;
+}
+
+.mode input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.mode .slider.round {
+    border-radius: 34px;
+}
+
+.mode .slider.round:before {
+    border-radius: 50%;
 }
 
 .level {
     grid-area: lvl;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+.level progress {
+    width: 90%;
+    align-self: center;
+}
+
+.level progress::-webkit-progress-bar {
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 10px;
+    height: 10px;
+}
+
+.level progress::-webkit-progress-value {
+    background-color: #b64379;
+    border-radius: 10px;
+    height: 10px;
 }
 
 .reward {
     grid-area: rwd;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+}
+
+.reward img {
+    width: 20px;
+}
+
+.reward>img {
+    width: 50%;
+    max-width: 130px;
+    align-self: center;
+    transform: rotate(-30deg);
 }
 
 .endorsements {
     grid-area: edr;
 }
 
+.endorsements span {
+    color: #b64379;
+}
+
 /* Main End */
+
+@media (max-width: 1200px) and (min-width:980px) {
+    body {
+        display: grid;
+        grid-template-areas:
+            ' header header header header'
+            ' main main main main'
+            ' main main main main'
+            ' main main main main'
+            ' main main main main';
+    }
+}
+
+@media (max-width: 1200px) {
+    aside {
+        display: none;
+    }
+
+    main>button:last-child {
+        display: inline-block;
+    }
+}
+
+@media (max-width: 980px) and (min-width:660px) {
+    main {
+        display: grid;
+        grid-template-areas: 'ovw pt pt'
+            'ovw pt pt '
+            'ovw qt qt '
+            'trp qt qt '
+            'trp qt qt '
+            'st tk eng '
+            'st tk eng '
+            'st tk eng '
+            'lvl edr rwd'
+            'lvl edr rwd'
+            'mod .  .';
+    }
+
+}
+
+@media (max-width: 660px) {
+    main {
+        display: block;
+    }
+
+    main>div {
+        margin: 15px auto;
+    }
+
+}
