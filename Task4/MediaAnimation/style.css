@@ -61,35 +61,36 @@ header ul {
     font-weight: bold;
     color: #b64379;
 }
+
 body:has(#activity:not(:in-view)) {
     position: absolute;
     bottom: 0;
     right: 0;
-  }
-
+}
 
 @keyframes scroller {
-    from{
+    from {
         position: relative;
         border-radius: 15px;
     }
+
     to {
         position: fixed;
         border-radius: 25px;
         right: 20px;
         bottom: 20px;
     }
-    
 }
-  .visible {
+
+.visible {
     animation: scroller 1s ease-in-out backwards;
-    transition: all;
 }
 
 .out-of-view {
-    background-color: wheat;
-      animation: scroller 1s ease-in-out forwards;
-  }
+    background-color: #ffffff;
+    animation: scroller 1s ease-in-out forwards;
+}
+
 header ul li {
     height: max-content;
     display: flex;
@@ -189,7 +190,7 @@ aside {
     flex-direction: column;
     justify-content: space-around;
     align-items: left;
-    
+
 }
 
 /* Dog head animation */
@@ -215,22 +216,25 @@ aside {
     animation: dogAnim 3s infinite;
 }
 
-#openButton:hover + aside {
+#openButton:hover+aside {
     display: inline-block;
-   position: absolute;
-   left: 30px;
-   transition: transform 0.5s ease;
+    position: absolute;
+    left: 30px;
+    transition: transform 0.5s ease;
 }
+
 #openButton {
-   display: none;
-   width: 30px;
-   height: 150px;
-   position: absolute;
-   top: 50%;
-   left: 0;
-   background-color: #151419;
-   font-size: 40px;
+    display: none;
+    width: 30px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: #151419;
+    font-size: 40px;
+    z-index: 100;
 }
+
 /* Left Side End */
 
 
