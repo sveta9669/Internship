@@ -6,19 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Page</title>
     <link rel="stylesheet" href="style.css">
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link rel='stylesheet'
+        href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
 </head>
 
 <body>
     <header>
-        <div></div>
-        <div></div>
+        <div>
+            <ul>
+                <li>Activity</li>
+            </ul>
+        </div>
+        <div class="menu">
+            <ul>
+                <li>5</li>
+                <li><img src="hero.png" alt="">10</li>
+                <li><img src="minus.png" alt="" srcset="">34</li>
+                <li>3456</li>
+            </ul>
+            <img src="person.png" alt="Mini person">
+        </div>
     </header>
     <main>
         <div class="overview">
             <h1>Overview</h1>
-            <img src="person.png" alt="Person">
+            <div>
+                <img src="person.png" alt="Person">
+            </div>
         </div>
         <div class="trophies">
             <p>Trophies</p>
@@ -27,11 +43,17 @@
                 <p>Kudo Lover</p>
             </div>
             <p>You sent 10 kudos</p>
+            <p>
+                <img src="hero.png" alt="">1
+                <img src="minus.png" alt="">2
+            </p>
         </div>
         <div class="stats">
             <p>Global Stats</p>
-            <p class="number">345</p>
-            <p>Task completed</p>
+            <div>
+                <p class="number">345</p>
+                <p>Task completed</p>
+            </div>
             <p>&#8882;&nbsp;&#8883;</p>
         </div>
         <div class="points">
@@ -56,31 +78,64 @@
         </div>
         <div class="tokens">
             <p>Your tokens</p>
+            <p class="number"><img src="minus.png" alt="">34</p>
+            <p>Exchange your tokens on <br> real gifts!</p>
+            <button>Spend Tokens</button>
         </div>
         <div class="energy">
             <p>Energy</p>
+            <div>
+                <p class="number"><img src="hero.png" alt="">10</p>
+                <p>Use your energy to give <br>kudos to other!</p>
+            </div>
+            <button>Browse people</button>
         </div>
         <div class="mode">
-            <p></p>
+            <p>Allimghty admin mode</p>
+
+            <label class="switch">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
         </div>
         <div class="level">
-            <p></p>
+            <p>My Level</p>
+            <div>
+                <p class="number">80</p>
+            </div>
+            <progress max="100" value="74"></progress>
+            <p>2030 to next level</p>
         </div>
         <div class="reward">
-            <p></p>
+            <p>Daily Reward</p>
+            <img src="cup.png" alt="Cup">
+            <p>Morning coffee</p>
+            <div>
+                <p>
+                    <img src="hero.png" alt="">1
+                    <img src="minus.png" alt="">2
+                </p>
+            </div>
+            <button>Collect</button>
         </div>
         <div class="endorsements">
-            <p></p>
+            <p>Recent endorsements</p>
+            <p class="number">345 <span>+4</span></p>
+            <p>Performance</p>
+            <p class="number">452 <span>+2</span></p>
+            <p>Teamwork</p>
+            <p class="number">212 <span>+1</span></p>
+            <p>Leadership</p>
         </div>
+        <button>&#8883;</button>
     </main>
     <aside>
-        <div>
+        <div class="logo">
             <p>Qeam</p>
-            
         </div>
-        <div>
+        <div class="menuA">
             <ul>
-                <li><i class="fi fi-sr-home"></i>  Overview</li>
+                <li><i class="fi fi-sr-home"></i> Overview</li>
                 <li><i class="fi fi-sr-chart-histogram"></i> Dashboard</li>
                 <li><i class="fi fi-sr-key"></i> Quests</li>
                 <li><i class="fi fi-sr-flag-alt"></i> Mission (OKRs)</li>
@@ -90,7 +145,7 @@
                 <li><i class="fi fi-sr-settings"></i> Setting</li>
             </ul>
         </div>
-        <div>
+        <div class="menuB">
             <ul>
                 <li>Managment</li>
                 <li>Designers</li>
@@ -99,8 +154,8 @@
                 <li>Marketing</li>
             </ul>
         </div>
-        <div>
-            <img src="dog.png" width="40px" alt="Mult Dog">
+        <div class="dogAnimation">
+            <img src="dog.png" alt="Mult Dog">
         </div>
     </aside>
 </body>
