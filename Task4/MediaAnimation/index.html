@@ -10,13 +10,14 @@
         href='https://cdn-uicons.flaticon.com/2.6.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link rel='stylesheet'
         href='https://cdn-uicons.flaticon.com/2.6.0/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+   
 </head>
 
 <body>
     <header>
         <div>
             <ul>
-                <li>Activity</li>
+                <li id="activity" class="visible">Activity</li>
             </ul>
         </div>
         <div class="menu">
@@ -127,8 +128,8 @@
             <p class="number">212 <span>+1</span></p>
             <p>Leadership</p>
         </div>
-        <button>&#8883;</button>
     </main>
+    <button id="openButton">&#8883;</button>
     <aside>
         <div class="logo">
             <p>Qeam</p>
@@ -159,5 +160,31 @@
         </div>
     </aside>
 </body>
-
+<script>
+    const button = document.getElementById('activity');
+    function isInViewport(el) {
+        const rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= window.innerHeight &&
+            rect.right <= window.innerWidth
+        );
+    }
+    window.addEventListener('scroll', () => {
+        if (isInViewport(button)) {
+        if (!button.classList.contains('visible')) {
+          button.classList.remove('out-of-view');
+          button.classList.add('visible');
+          button.textContent = 'Activity';
+        }
+      } else {
+        if (!button.classList.contains('out-of-view')) {
+          button.classList.remove('visible');
+          button.classList.add('out-of-view');
+          button.textContent = 'A';
+        }
+      }
+    });
+</script>
 </html>

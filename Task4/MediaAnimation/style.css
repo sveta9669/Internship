@@ -57,11 +57,39 @@ header ul {
     display: flex;
 }
 
-header div:first-child li {
+#activity {
     font-weight: bold;
     color: #b64379;
 }
+body:has(#activity:not(:in-view)) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
 
+
+@keyframes scroller {
+    from{
+        position: relative;
+        border-radius: 15px;
+    }
+    to {
+        position: fixed;
+        border-radius: 25px;
+        right: 20px;
+        bottom: 20px;
+    }
+    
+}
+  .visible {
+    animation: scroller 1s ease-in-out backwards;
+    transition: all;
+}
+
+.out-of-view {
+    background-color: wheat;
+      animation: scroller 1s ease-in-out forwards;
+  }
 header ul li {
     height: max-content;
     display: flex;
@@ -187,6 +215,22 @@ aside {
     animation: dogAnim 3s infinite;
 }
 
+#openButton:hover + aside {
+    display: inline-block;
+   position: absolute;
+   left: 30px;
+   transition: transform 0.5s ease;
+}
+#openButton {
+   display: none;
+   width: 30px;
+   height: 150px;
+   position: absolute;
+   top: 50%;
+   left: 0;
+   background-color: #151419;
+   font-size: 40px;
+}
 /* Left Side End */
 
 
@@ -218,27 +262,6 @@ main {
     animation: mainIn 1.5s ease-in-out;
 }
 
-/* @keyframes leftMenu {
-    from {
-        display: none;
-    }
-
-    to {
-        display: block;
-        position: absolute;
-    }
-} */
-
-main>button:last-child {
-    display: none;
-    width: 30px;
-    height: 150px;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    background-color: #151419;
-    font-size: 40px;
-}
 
 main>div {
     padding: 10px;
@@ -501,7 +524,7 @@ main>div .number {
         display: none;
     }
 
-    main>button:last-child {
+    #openButton {
         display: inline-block;
     }
 }
