@@ -59,7 +59,7 @@
         </div>
         <div class="points">
             <p>Your points</p>
-            <p>3456</p>
+            <p class="number">3456</p>
             <p>Recent transactions</p>
             <ul>
                 <li>Completed a task "Dashboard design" <span>20</span></li>
@@ -162,27 +162,19 @@
 </body>
 <script>
     const button = document.getElementById('activity');
-    function isInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= window.innerHeight &&
-            rect.right <= window.innerWidth
-        );
-    }
+    
     window.addEventListener('scroll', () => {
-        if (isInViewport(button)) {
-            if (!button.classList.contains('visible')) {
-                button.classList.remove('out-of-view');
-                button.classList.add('visible');
-                button.textContent = 'Activity';
-            }
-        } else {
+        if (window.scrollY >= 30) {
             if (!button.classList.contains('out-of-view')) {
                 button.classList.remove('visible');
                 button.classList.add('out-of-view');
                 button.textContent = 'A';
+            }
+        } else {
+            if (!button.classList.contains('visible')) {
+                button.classList.remove('out-of-view');
+                button.classList.add('visible');
+                button.textContent = 'Activity';
             }
         }
     });

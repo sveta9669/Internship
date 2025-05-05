@@ -58,37 +58,19 @@ header ul {
 }
 
 #activity {
+    position: relative;
     font-weight: bold;
     color: #b64379;
-}
+    z-index: 1000000;
+    /* border-radius: 15px; */
+    transition: transform 4s ease-in-out, border-radius 7s ease;
 
-body:has(#activity:not(:in-view)) {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-@keyframes scroller {
-    from {
-        position: relative;
-        border-radius: 15px;
-    }
-
-    to {
-        position: fixed;
-        border-radius: 25px;
-        right: 20px;
-        bottom: 20px;
-    }
-}
-
-.visible {
-    animation: scroller 1s ease-in-out backwards;
 }
 
 .out-of-view {
     background-color: #ffffff;
-    animation: scroller 1s ease-in-out forwards;
+    border-radius: 100%;
+    transform: translate(calc(100vw - 400px), calc(100vh - 50px));
 }
 
 header ul li {
@@ -305,7 +287,7 @@ main>div .number {
 }
 
 .overview img {
-    height: 140%;
+    height: 135%;
     transform: translateY(-80px);
 }
 
@@ -349,6 +331,21 @@ main>div .number {
 
 .quests {
     grid-area: qt;
+}
+
+.points p,
+.quests p {
+    margin-bottom: 15px;
+    color: #b64379;
+}
+.points li span,
+.quests li span {
+    color: #b64379;
+}
+.points ul li,
+.quests ul li {
+    padding: 15px;
+    border-bottom: 1px solid #ffffff4f;
 }
 
 .tokens {
