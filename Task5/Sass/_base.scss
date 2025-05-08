@@ -1,0 +1,37 @@
+@use 'variables' as *;
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+a {
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+h2 span {
+    color: $textblue;
+}
+
+.fa {
+    font-size: 1.7em !important;
+    color: #fff;
+}

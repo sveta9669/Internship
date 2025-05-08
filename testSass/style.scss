@@ -1,0 +1,93 @@
+@use 'base';
+@use 'variables' as *;
+@use 'mixins';
+
+
+.slider {
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  overflow: hidden;
+
+  &__track {
+    display: flex;
+    transition: transform $transition-time ease;
+    width: $slide-count * 100%;
+  }
+
+  .slide {
+    width: 100%;
+    flex: 0 0 calc(100% / $slide-count);
+    width: $slide-width;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    background: lightgray;
+  }
+
+  @for $i from 1 through $slide-count {
+    input#slide#{$i} {
+      display: none;
+
+      &:checked~.slider__track {
+        transform: translateX(calc(-1 * ($i - 1) * 100% / $slide-count));
+      }
+
+      &:checked~.dots label[for="slide#{$i}"] {
+        background-color: rgb(0, 41, 164);
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+
+  .dots {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+
+    label {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: rgb(255, 255, 255);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+  }
+
+  @keyframes slide-left {
+    @for $i from 0 through $slide-count {
+      #{calc($i * 100% / ($slide-count))} {
+        transform: translateX(-#{calc(100% / ($slide-count)) * $i});
+      }
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  &__track2 {
+    display: flex;
+    width: $slide-count * 50%;
+    animation: slide-left 20s linear infinite;
+  }
+
+  &__track2:hover {
+    animation-play-state: paused;
+  }
+
+}
+@for $i from 1 through 3{
+  .sticky#{$i} {
+    @include mixins.sticky;
+    top: 20px * $i;
+    background-color: rgb(10 * $i, 20 * $i, 30 * $i)
+  }
+}

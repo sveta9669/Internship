@@ -1,0 +1,381 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+}
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 1rem;
+}
+
+h2 span {
+  color: #00bbf0;
+}
+
+.fa {
+  font-size: 1.7em !important;
+  color: #fff;
+}
+
+@keyframes floatWave {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-45px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes slide-left {
+  0% {
+    transform: translateX(-0%);
+  }
+  20% {
+    transform: translateX(-20%);
+  }
+  40% {
+    transform: translateX(-40%);
+  }
+  60% {
+    transform: translateX(-60%);
+  }
+  80% {
+    transform: translateX(-80%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+  80% {
+    transform: translateX(0%);
+  }
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background-color: #002149;
+}
+header div {
+  width: 20%;
+}
+header div h2 {
+  font-size: 2.5em;
+  color: #fff;
+}
+header nav {
+  width: 50%;
+}
+header nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header nav ul a {
+  color: #fff;
+  font-size: 1.5em;
+}
+header nav ul a:hover {
+  color: #00bbf0;
+}
+header nav ul a.active {
+  color: #00bbf0;
+}
+
+main .home {
+  background-color: #002149;
+  height: 40rem;
+  position: relative;
+  padding-top: 6rem;
+}
+main .home .wave {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: auto;
+}
+main .home .slider {
+  position: relative;
+  width: 100%;
+  height: 30rem;
+  margin: 0 6rem;
+  color: #fff;
+  overflow: hidden;
+}
+main .home .slider_banner {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 300%;
+}
+main .home .slider .slide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  flex: 0 0 33.3333333333%;
+  justify-content: center;
+}
+main .home .slider .slide div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 45%;
+  height: 20rem;
+}
+main .home .slider .slide h2 {
+  font-size: 4rem;
+}
+main .home .slider .slide p {
+  font-size: 1.2em;
+}
+main .home .slider .slide button {
+  width: 10rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  font-size: 1em;
+  color: white;
+  background-color: #11bcee;
+  cursor: pointer;
+}
+main .home .slider .slide img {
+  width: 70%;
+  animation: floatWave 3s ease-in-out infinite;
+}
+main .home .slider input#slide1 {
+  display: none;
+}
+main .home .slider input#slide1:checked ~ .slider_banner {
+  transform: translateX(0%);
+}
+main .home .slider input#slide1:checked ~ .dots label[for=slide1] {
+  background-color: #11bcee;
+  width: 1rem;
+  height: 1rem;
+}
+main .home .slider input#slide2 {
+  display: none;
+}
+main .home .slider input#slide2:checked ~ .slider_banner {
+  transform: translateX(-33.3333333333%);
+}
+main .home .slider input#slide2:checked ~ .dots label[for=slide2] {
+  background-color: #11bcee;
+  width: 1rem;
+  height: 1rem;
+}
+main .home .slider input#slide3 {
+  display: none;
+}
+main .home .slider input#slide3:checked ~ .slider_banner {
+  transform: translateX(-66.6666666667%);
+}
+main .home .slider input#slide3:checked ~ .dots label[for=slide3] {
+  background-color: #11bcee;
+  width: 1rem;
+  height: 1rem;
+}
+main .home .slider .dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+}
+main .home .slider .dots label {
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  cursor: pointer;
+}
+main .services {
+  width: 100%;
+  padding: 4rem;
+  text-align: center;
+}
+main .services > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0;
+}
+main .services > div > div {
+  width: 30%;
+  padding: 1rem;
+  background-color: #f6f6f6;
+}
+main .services > div > div figcaption {
+  font-weight: bold;
+  font-size: 2em;
+}
+main .services > div > div p {
+  margin: 1rem 0;
+  letter-spacing: 0.1em;
+}
+main .services > div > div img {
+  width: 25%;
+  margin-bottom: 1rem;
+}
+main .services > div > div a {
+  color: #002149;
+  font-weight: 500;
+}
+main .services button {
+  width: 10rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  font-size: 1em;
+  color: white;
+  background-color: #11bcee;
+  cursor: pointer;
+}
+main .about {
+  padding: 4rem;
+  text-align: center;
+  color: #fff;
+  background-color: #002149;
+}
+main .about > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 2rem;
+}
+main .about > div > div {
+  width: 40%;
+  text-align: left;
+}
+main .about > div p {
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+}
+main .about > div img {
+  text-align: center;
+  width: 100%;
+}
+main .about > div button {
+  width: 10rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  font-size: 1em;
+  color: white;
+  background-color: #11bcee;
+  cursor: pointer;
+}
+main .us {
+  padding: 4rem;
+  text-align: center;
+}
+main .us > div {
+  position: sticky;
+  top: 0;
+  padding: 5rem 3rem;
+  background-color: white;
+}
+main .us > div figcaption {
+  margin: 1rem 0;
+  font-weight: bold;
+  font-size: 2em;
+}
+main .us > div p {
+  letter-spacing: 0.1em;
+  line-height: 1.5em;
+}
+main .us > div img {
+  width: 10%;
+  padding: 1rem;
+  border: 0.7rem solid #002149;
+  border-radius: 50%;
+}
+main .team {
+  padding: 4rem;
+  text-align: center;
+  color: #fff;
+  background-color: #002149;
+}
+main .team > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 250%;
+  animation: slide-left 20s linear infinite;
+}
+main .team > div:hover {
+  animation-play-state: paused;
+}
+main .team > div > div {
+  width: 25%;
+  margin: 1rem 3rem;
+  padding: 1rem;
+  background-color: rgba(67, 67, 255, 0.1294117647);
+}
+main .team > div > div > img {
+  width: 20%;
+  border: 0.7rem solid #fff;
+  border-radius: 50%;
+}
+main .team > div > div p:first-of-type {
+  margin: 1rem 0;
+  color: #00bbf0;
+  font-size: 2em;
+}
+main .team > div > div p:last-of-type {
+  font-size: 1.5em;
+}
+main .team > div > div > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  margin: 2rem auto;
+}
+main .customers {
+  padding: 4rem;
+  text-align: center;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem;
+  color: #fff;
+  background-color: #002149;
+}
+footer > div {
+  width: 20%;
+}
+footer > div button {
+  width: 10rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  font-size: 1em;
+  color: white;
+  background-color: #11bcee;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

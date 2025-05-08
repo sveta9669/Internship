@@ -1,0 +1,23 @@
+@use 'variables' as *;
+
+@mixin sticky {
+    position: sticky;
+    top: 0;
+    padding: 5rem 3rem;
+    background-color: white;
+}
+
+@mixin flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+@mixin button {
+    width: 10rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    font-size: 1em;
+    color: white;
+    background-color: $lightblue;
+    cursor: pointer;
+}
