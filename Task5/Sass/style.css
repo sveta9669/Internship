@@ -34,6 +34,10 @@ h2 span {
   color: #fff;
 }
 
+.fa-quote-left {
+  color: #000;
+}
+
 @keyframes floatWave {
   0% {
     transform: translateY(0);
@@ -64,7 +68,7 @@ h2 span {
   100% {
     transform: translateX(-100%);
   }
-  80% {
+  100% {
     transform: translateX(0%);
   }
 }
@@ -103,7 +107,7 @@ header nav ul a.active {
 
 main .home {
   background-color: #002149;
-  height: 40rem;
+  height: 44rem;
   position: relative;
   padding-top: 6rem;
 }
@@ -116,7 +120,7 @@ main .home .wave {
 main .home .slider {
   position: relative;
   width: 100%;
-  height: 30rem;
+  height: 33rem;
   margin: 0 6rem;
   color: #fff;
   overflow: hidden;
@@ -160,6 +164,7 @@ main .home .slider .slide button {
 }
 main .home .slider .slide img {
   width: 70%;
+  max-width: 30rem;
   animation: floatWave 3s ease-in-out infinite;
 }
 main .home .slider input#slide1 {
@@ -305,10 +310,20 @@ main .us > div p {
   line-height: 1.5em;
 }
 main .us > div img {
-  width: 10%;
-  padding: 1rem;
+  width: 15%;
+  min-width: 100px;
+  padding: 1em;
   border: 0.7rem solid #002149;
   border-radius: 50%;
+}
+main .us button {
+  width: 10rem;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  font-size: 1em;
+  color: white;
+  background-color: #11bcee;
+  cursor: pointer;
 }
 main .team {
   padding: 4rem;
@@ -356,17 +371,72 @@ main .customers {
   padding: 4rem;
   text-align: center;
 }
+main .customers h2 {
+  margin-bottom: 2em;
+}
+main .customers .customerSlide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  margin: auto;
+}
+main .customers .customerSlide .customer {
+  width: 48%;
+  padding: 1rem;
+  text-align: left;
+  box-shadow: 0em 0em 0.5em 0.4em #f3f3f3;
+}
+main .customers .customerSlide .customer div:last-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+main .customers .customerSlide .customer .fullName {
+  font-weight: bold;
+}
+main .customers .customerSlide .customer img {
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  transform: translateY(-3em);
+}
 
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  align-items: flex-start;
   padding: 4rem;
   color: #fff;
   background-color: #002149;
 }
 footer > div {
   width: 20%;
+}
+footer > div.links ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+}
+footer > div.address > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}
+footer > div.address > div:first-of-type {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+footer > div.address > div:first-of-type a {
+  color: white;
 }
 footer > div button {
   width: 10rem;
@@ -376,6 +446,20 @@ footer > div button {
   color: white;
   background-color: #11bcee;
   cursor: pointer;
+  width: 100%;
+}
+footer > div input {
+  width: 100%;
+  padding-bottom: 1rem;
+  color: white;
+  font-size: 1em;
+  border-bottom: 1px solid #f6f6f6;
+  background-color: transparent;
+  outline: none;
+}
+footer > div input::placeholder {
+  color: white;
+  font-size: 1em;
 }
 
 /*# sourceMappingURL=style.css.map */

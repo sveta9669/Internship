@@ -19,8 +19,7 @@
         transform: translateX(-#{calc(100% / ($auto-slide-count)) * $i});
       }
     }
-
-    80% {
+    100% {
       transform: translateX(0%);
     }
   }

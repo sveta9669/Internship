@@ -21,7 +21,6 @@ header {
     }
 
     nav {
-        // max-width: 50rem;
         width: 50%;
 
         ul {
@@ -51,7 +50,7 @@ main {
 
     .home {
         background-color: $darkblue;
-        height: 40rem;
+        height: 44rem;////////////
         position: relative;
         padding-top: 6rem;
 
@@ -65,7 +64,7 @@ main {
         .slider {
             position: relative;
             width: 100%;
-            height: 30rem;
+            height: 33rem;////////////
             margin: 0 6rem;
             color: #fff;
             overflow: hidden;
@@ -87,11 +86,11 @@ main {
                     flex-direction: column;
                     align-items: flex-start;
                     width: 45%;
-                    height: 20rem;
+                    height: 20rem; ////////////
                 }
 
                 h2 {
-                    font-size: 4rem;
+                    font-size: 4rem; ////////////
                 }
 
                 p {
@@ -105,6 +104,7 @@ main {
 
                 img {
                     width: 70%;
+                    max-width: 30rem;
                     animation: floatWave 3s ease-in-out infinite;
                 }
             }
@@ -242,11 +242,16 @@ main {
             }
 
             img {
-                width: 10%;
-                padding: 1rem;
-                border: 0.7rem solid $darkblue;
+                width: 15%;
+                min-width: 100px;
+                padding: 1em;
+                border: 0.7rem solid $darkblue; ////////////
                 border-radius: 50%;
             }
+        }
+
+        button {
+            @include mixins.button;
         }
     }
 
@@ -276,7 +281,7 @@ main {
 
                 &>img {
                     width: 20%;
-                    border: 0.7rem solid #fff;
+                    border: 0.7rem solid #fff; ////////////
                     border-radius: 50%;
                 }
 
@@ -297,6 +302,7 @@ main {
                 }
             }
         }
+
     }
 
     //customers section
@@ -304,6 +310,33 @@ main {
     .customers {
         padding: 4rem;
         text-align: center;
+        h2{
+            margin-bottom: 2em;
+        }
+        .customerSlide {
+            @include mixins.flex;
+            width: 80%;
+            margin: auto;
+            .customer {
+                width: 48%;
+                padding: 1rem;
+                text-align: left ;
+                box-shadow: 0em 0em 0.5em 0.4em #f3f3f3;
+                div:last-of-type{
+                    @include mixins.flex;
+                    margin-bottom: 1em;
+                }
+                .fullName{
+                    font-weight: bold;
+                }
+                img{
+                    width: 6rem;
+                    height: 6rem;
+                    border-radius: 50%;
+                    transform: translateY(-3em);
+                }
+            }
+        }
     }
 
 }
@@ -314,6 +347,7 @@ main {
 
 footer {
     @include mixins.flex;
+    align-items: flex-start;
     padding: 4rem;
     color: #fff;
     background-color: $darkblue;
@@ -321,8 +355,48 @@ footer {
     &>div {
         width: 20%;
 
+        &.links ul {
+            @include mixins.flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem
+        }
+
+        &.address>div {
+            @include mixins.flex;
+            width: 60%;
+        }
+
+        &.address>div:first-of-type {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.8rem;
+            margin-bottom: 2rem;
+
+            a {
+                color: white;
+            }
+        }
+
         button {
             @include mixins.button;
+            width: 100%;
+        }
+
+        input {
+            width: 100%;
+            padding-bottom: 1rem; ////////////
+            color: white;
+            font-size: 1em;
+            border-bottom: 1px solid #f6f6f6;
+            background-color: transparent;
+            outline: none;
+
+            &::placeholder {
+                color: white;
+                font-size: 1em;
+            }
         }
     }
+
 }
