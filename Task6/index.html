@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js"></script>
+    <script src="script2.js"></script>
+</head>
+<body>
+    <!-- 1. Create a function called reduce which accepts an array and all the usual parameters and returns the accumulated result.
+    reduce([5, 9, 10], function(acc, val, i) {   // should return 24
+        return acc + val;
+    }, 0);
+
+2. Create a function called transform which takes an array of objects of this form:
+
+    [
+       {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+       {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+       {fn: "Jane", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+       {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+    ]
+ 
+The function should filter the list down to only those whose gender value is “female” and return an array with those objects transformed into the following form:
+
+    [
+       {firstName: "Jane", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+       {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+    ]
+
+ Example:
+
+     transform([
+         {fn: "Kate", ln: "Karapetyan", ph: "039 323 233", gender: "female" },
+         {fn: "Joe", ln: "Mikaelyan", ph: "039 323 233", gender: "male" },
+         {fn: "Mike", ln: "Hovsepyan", ph: "039 323 233", gender: "male" },
+         {fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
+     ]);
+
+     // should return:
+     // [
+     //    {firstName: "Kate", lastName: "Karapetyan", phone: "039 323 233", gender: "female" },
+     //    {firstName: "Jill", lastName: "Isahakyan", phone: "039 323 233", gender: "female" }
+     // ]
+
+3. Create a function called getAvgAgeByColor that takes an array of objects about people and a hair color.  The function should return the average age of everyone in the array with the given hair color.
+
+Example:
+
+    getAvgAgeByColor([
+        {name: "Joe", age: 13, hairColor: "red"}, 
+        {name: "Mike", age: 10, hairColor: "brown"}, 
+        {name: "Jane", age: 4, hairColor: "red"}, 
+        {name: "Susan", age: 30, hairColor: "brown"}
+    ], "brown"); 
+    // should return 20, the average age of everyone who’s hair color is brown
+
+4. Create a function called getPersonWithMostFriendsByName that returns the name of the person who has the most number of friends with the given name.
+
+Example:
+
+    getPersonWithMostFriendsByName([
+     {
+      name: "Joe", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Jane", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }, 
+     {
+      name: "Liz", 
+      friends: [
+    {name: "Mila", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Jane", age: 33}
+       ]
+        },
+    {
+      name: "Mike", 
+      friends: [
+    {name: "Susan", age: 12}, 
+    {name: "Susan", age: 43}, 
+    {name: "Susan", age: 33}
+       ]
+        }
+    ], "Susan"); // should return “Mike”, since he has most number of friends named Susan
+
+5. Write a function called toNumber which takes a binary string and returns the numeric value that it represents.  Read binary numbers from right to left.  If you don’t know how binary numbers work, ask google :)
+
+ Example:
+
+     toNumber(“101”);  // should return 5
+     toNumber(“111”);  // should return 7
+     toNumber("1011") // should return 11
+
+6. Create a function called magic which accepts an object and returns a new object where the keys have become the values and the values have become the keys.
+
+Example:
+
+    magic({
+      firstName: "Michael",
+      lastName: "Jackson"
+    });
+
+    // should return:
+    // {
+    //    Michael: "firstName",
+    //    Jackson: "lastName"
+    // }
+    
+   7. Create a function, called diamond, that makes a string that looks like a diamond where the height of the diamond is of the given odd number.  The given number is always a positive, whole, odd number.
+
+Hint: remember that "\n" causes a new line in the rendering
+
+Example: 
+
+    function diamond(height) {
+        // ... your logic goes here ...
+    }
+
+    alert(diamond(5)); // should show the following
+
+    //   *
+    //  ***
+    // *****
+    //  ***
+    //   *
+
+8. Գտե՛ք տրված սթրինգում տառերի/նիշերի ընդհանուր քանակը։ Ալերթ պատուհանի/դիալոգի մեջ տպե՛ք, թե ինչ հաճախականությամբ է հանդիպում տվյալ տառը/նիշը։
+
+function alertFreq(str) {
+    // ... code ...
+}
+
+alertFreq("hello-world");
+
+9. 
+Ունենալով երկու ամբողջ թվերից բաղկացած a, b զանգավծներ և v թիվը , գտեք՝ արդյո՞ք գոյություն ունի այնպիսի թվերի զույգ, որտեղ առաջին թիվը վերցված է a զանգվածից, երկրորդ թիվը վերցված է b զանգվածից և այդ թվերի գումարը հավասար է v-ի: Վերադարձրեք true, եթե այդպիսի զույգ գոյություն ունի և false, եթե այդպիսի զույգ գոյություն չունի:
+
+function sumPairExists(a, b, v) {
+  // .. code ..
+}
+
+// true ...որովհետեւ 10 + 12 = 22
+alert(sumPairExists([4, 2, 4, 60, 10, 9, 15], [67, 12, 0, 2, 1, 0], 22));
+
+10. Գրե՛ք ֆունկցիա, որը ստանալով string, վերադարձնում է առաջին չկրկնվող տառը:
+
+function firstNonRepeatingCharacter(str) {
+ // ... code ...
+}
+
+// "o"
+alert(firstNonRepeatingCharacter("hello my happy friends")); -->
+
+<!-- 1. Write a function isAdult(age) that returns "Adult" if age is 18 or older, otherwise returns "Minor".
+2. Write a program that prints all even numbers from 1 to 20 using a for loop.
+3. Write a function calculateArea(shape, a, b) where:
+    >     shape can be "rectangle" or "triangle"
+    >     a and b are the required dimensions
+    >     Return the correct area based on the shape. Use conditionals to determine the logic.
+4. Create an array of 5 numbers.
+    > Use .map() to square each number
+    > Use .filter() to return only numbers greater than 10
+    > Log both results.
+5. Create an object person with properties: name, age, email.
+    > Add a method greet() that returns "Hello, my name is <name>"
+    > Use both dot and bracket notation to read and update properties.
+6. Write a function safeDivide(a, b) that:
+    > Returns the result of a / b
+    > Throws an error if b is 0
+    > Use try/catch to call this function and handle the error gracefully
+7. Given this object: const user = { name: "Alice", age: 25, country: "USA" };
+    > Use object destructuring to extract the values
+    > Use template literals to return: "Alice is 25 years old and lives in USA."
+8. Write a function sumAll(...numbers) that:
+    > Takes any number of arguments
+    > Returns the sum of all numbers
+    > Use arrow function and rest operator.
+9. Write a function analyzeUsers(users) where users is an array of objects like:
+  [
+    { name: "John", age: 17 },
+    { name: "Jane", age: 22 }
+  ]
+    > Return a new array that:
+    > Filters adults (18+)
+    > Maps to strings like: "Jane is 22 years old"
+    > Handles errors if input is not an array (use try/catch) -->
+</body>
+</html>
