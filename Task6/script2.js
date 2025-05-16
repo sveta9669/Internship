@@ -146,35 +146,37 @@ Example:
     ], "Susan"); // should return “Mike”, since he has most number of friends named Susan */
 
 
-// function getPersonWithMostFriendsByName(arr, friendName){
-
+// function getPersonWithMostFriendsByName(arr, friendName) {
+//     const arr1 = arr.map(el => el.friends.filter(elName => elName.name == friendName).length)
+//     const index = arr1.indexOf(Math.max(...arr1))
+//     console.log(arr[index].name)
 // }
-//     getPersonWithMostFriendsByName([
-//         {
-//          name: "Joe", 
-//          friends: [
-//        {name: "Susan", age: 12}, 
-//        {name: "Jane", age: 43}, 
-//        {name: "Susan", age: 33}
-//           ]
-//            }, 
-//         {
-//          name: "Liz", 
-//          friends: [
-//        {name: "Mila", age: 12}, 
-//        {name: "Susan", age: 43}, 
-//        {name: "Jane", age: 33}
-//           ]
-//            },
-//        {
-//          name: "Mike", 
-//          friends: [
-//        {name: "Susan", age: 12}, 
-//        {name: "Susan", age: 43}, 
-//        {name: "Susan", age: 33}
-//           ]
-//            }
-//        ], "Susan");
+// getPersonWithMostFriendsByName([
+//     {
+//         name: "Joe",
+//         friends: [
+//             { name: "Susan", age: 12 },
+//             { name: "Jane", age: 43 },
+//             { name: "Susan", age: 33 }
+//         ]
+//     },
+//     {
+//         name: "Liz",
+//         friends: [
+//             { name: "Mila", age: 12 },
+//             { name: "Susan", age: 43 },
+//             { name: "Jane", age: 33 }
+//         ]
+//     },
+//     {
+//         name: "Mike",
+//         friends: [
+//             { name: "Susan", age: 12 },
+//             { name: "Susan", age: 43 },
+//             { name: "Susan", age: 33 }
+//         ]
+//     }
+// ], "Susan");
 
 // --------------------------------------------------------------------------------------------
 
@@ -184,7 +186,7 @@ Example:
 
      toNumber(“101”);  // should return 5
      toNumber(“111”);  // should return 7
-     toNumber("1011") // should return 11 */
+     toNumber("1011") // should return 11  */
 
 
 // function toNumber(str) {
@@ -241,7 +243,7 @@ Example:
 
 Hint: remember that "\n" causes a new line in the rendering
 
-Example: 
+Example:
 
     function diamond(height) {
         // ... your logic goes here ...
@@ -255,34 +257,114 @@ Example:
     //  ***
     //   *                 */
 
-    //    *
-    //   ***
-    //  *****
-    // *******
-    //  *****
-    //   ***
-    //    *    
 
 
-    function diamond(height) {
-        const space = " ";
-        const symbol = "*";
-        let diamond = ''
-        let spaceCount = height/2;
-        let symbolCount = 1;
+// function diamond(height) {
+//     const space = " ";
+//     const symbol = "*";
+//     let diamond = '';
+//     let spaceCount = height / 2;
+//     let symbolCount = 1;
 
-        for(let k =0; k<height/2; k++){
-            for(let j = 1; j<height; j+=2){
-            for(let i = height/2; i > 0; i--){
-                diamond += space
-            }
-            diamond+=symbol
-        }
-        diamond+="\n"
-        }
+//     for (let k = 0; k < height / 2; k++) {
+//         for (let i = spaceCount; i > 1; i--) {
+//             diamond += space;
+//         }
+//         spaceCount--;
+//         for (let j = 1; j <= symbolCount; j++) {
+//             diamond += symbol;
+//         }
+//         symbolCount++;
+//         diamond += "\n";
+//     }
 
-        
-        return diamond
-    }
+//     for (let k = 0; k < height / 2; k++) {
+//         for (let j = 0; j < spaceCount + 1; j++) {
+//             diamond += space;
+//         }
+//         symbolCount--;
+//         for (let i = symbolCount - 1; i > 0; i--) {
+//             diamond += symbol;
+//         }
+//         spaceCount++;
 
-alert(diamond(7));
+//         diamond += "\n";
+//     }
+//     return diamond;
+// }
+
+// alert(diamond(7));
+
+
+// --------------------------------------------------------------------------------------------
+
+/* 8. Գտե՛ք տրված սթրինգում տառերի/նիշերի ընդհանուր քանակը։ Ալերթ պատուհանի/դիալոգի մեջ տպե՛ք, թե ինչ հաճախականությամբ է հանդիպում տվյալ տառը/նիշը։
+
+function alertFreq(str) {
+    // ... code ...
+}
+
+alertFreq("hello-world"); */
+
+
+
+// function alertFreq(str) {
+//     let obj =  {}
+//     const arr = str.split('').sort()
+//     for(const sym of arr){
+//         obj[sym] =  arr.lastIndexOf(sym) - arr.indexOf(sym) + 1
+//     }
+//     // alert(JSON.stringify(obj));
+//     console.log(obj)
+// }
+
+// alertFreq("hello-world");
+
+// --------------------------------------------------------------------------------------------
+
+/* 9.
+Ունենալով երկու ամբողջ թվերից բաղկացած a, b զանգավծներ և v թիվը , գտեք՝ արդյո՞ք գոյություն ունի այնպիսի թվերի զույգ, որտեղ առաջին թիվը վերցված է a զանգվածից, երկրորդ թիվը վերցված է b զանգվածից և այդ թվերի գումարը հավասար է v-ի: Վերադարձրեք true, եթե այդպիսի զույգ գոյություն ունի և false, եթե այդպիսի զույգ գոյություն չունի:
+
+function sumPairExists(a, b, v) {
+  // .. code ..
+}
+
+// true ...որովհետեւ 10 + 12 = 22
+alert(sumPairExists([4, 2, 4, 60, 10, 9, 15], [67, 12, 0, 2, 1, 0], 22)); */
+
+
+
+// function sumPairExists(a, b, v) {
+//     for(const el of a){
+//        if(b.includes(v-el))
+//         return true;
+//     }
+//     return false;
+// }
+// alert(sumPairExists([4, 2, 4, 60, 10, 9, 15], [67, 12, 0, 2, 1, 0], 22)); 
+
+// --------------------------------------------------------------------------------------------
+
+/* 10. Գրե՛ք ֆունկցիա, որը ստանալով string, վերադարձնում է առաջին չկրկնվող տառը:
+
+function firstNonRepeatingCharacter(str) {
+ // ... code ...
+}
+
+// "o"
+alert(firstNonRepeatingCharacter("hello my happy friends")); */
+
+
+
+// function firstNonRepeatingCharacter(str) {
+//     const arr = str.split('')
+
+//     for (const sym of arr) {
+//         if (arr.indexOf(sym) == arr.lastIndexOf(sym)) {
+//             return sym
+//         }
+//     }
+//     return false
+// }
+
+// alert(firstNonRepeatingCharacter("hello my happy friends")); 
