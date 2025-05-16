@@ -85,7 +85,7 @@ The function should filter the list down to only those whose gender value is “
 //     { fn: "Jill", ln: "Isahakyan", ph: "039 323 233", gender: "female" }
 // ]);
 
-
+// --------------------------------------------------------------------------------------------
 
 /* 3. Create a function called getAvgAgeByColor that takes an array of objects about people and a hair color.  The function should return the average age of everyone in the array with the given hair color.
 
@@ -112,6 +112,7 @@ Example:
 //     { name: "Susan", age: 30, hairColor: "brown" }
 // ], "brown"); 
 
+// --------------------------------------------------------------------------------------------
 
 /* 4. Create a function called getPersonWithMostFriendsByName that returns the name of the person who has the most number of friends with the given name.
 
@@ -175,6 +176,7 @@ Example:
 //            }
 //        ], "Susan");
 
+// --------------------------------------------------------------------------------------------
 
 /* 5. Write a function called toNumber which takes a binary string and returns the numeric value that it represents.  Read binary numbers from right to left.  If you don’t know how binary numbers work, ask google :)
 
@@ -185,11 +187,102 @@ Example:
      toNumber("1011") // should return 11 */
 
 
-function toNumber(str) {
-    console.log(str.split(''))
-}
+// function toNumber(str) {
+//     const arr = str.split('').reverse()
+//     let num = 0;
+//     for (let i = 0; i < arr.length; i++) {
+//         if (arr[i] == 1) {
+//             num += Math.pow(2, i)
+//         }
+//     }
+//     return num;
+// }
 
 
-toNumber("101");
-toNumber("111");
-toNumber("1011");
+// console.log(toNumber("101"));
+// console.log(toNumber("111"));
+// console.log(toNumber("1011"));
+
+
+// --------------------------------------------------------------------------------------------
+
+/* 6. Create a function called magic which accepts an object and returns a new object where the keys have become the values and the values have become the keys.
+
+Example:
+
+    magic({
+      firstName: "Michael",
+      lastName: "Jackson"
+    });
+
+    // should return:
+    // {
+    //    Michael: "firstName",
+    //    Jackson: "lastName"
+    // } */
+
+
+// function magic(obj) {
+//     for (const key in obj) {
+//         obj[obj[key]] = key;
+//         delete obj[key]
+//     }
+//     return obj
+// }
+
+// console.log(magic({
+//     firstName: "Michael",
+//     lastName: "Jackson"
+// }));
+
+// --------------------------------------------------------------------------------------------
+
+/*7. Create a function, called diamond, that makes a string that looks like a diamond where the height of the diamond is of the given odd number.  The given number is always a positive, whole, odd number.
+
+Hint: remember that "\n" causes a new line in the rendering
+
+Example: 
+
+    function diamond(height) {
+        // ... your logic goes here ...
+    }
+
+    alert(diamond(5)); // should show the following
+
+    //   *
+    //  ***
+    // *****
+    //  ***
+    //   *                 */
+
+    //    *
+    //   ***
+    //  *****
+    // *******
+    //  *****
+    //   ***
+    //    *    
+
+
+    function diamond(height) {
+        const space = " ";
+        const symbol = "*";
+        let diamond = ''
+        let spaceCount = height/2;
+        let symbolCount = 1;
+
+        for(let k =0; k<height/2; k++){
+            for(let j = 1; j<height; j+=2){
+            for(let i = height/2; i > 0; i--){
+                diamond += space
+            }
+            diamond+=symbol
+        }
+        diamond+="\n"
+        }
+
+        
+        return diamond
+    }
+
+alert(diamond(7));
