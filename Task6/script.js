@@ -25,24 +25,21 @@
 >     a and b are the required dimensions
 >     Return the correct area based on the shape. Use conditionals to determine the logic. */
 
-// function calculateArea(shape, a,  b, c) {
-
+// function calculateArea(shape, a, b, c) {
+//     shape = shape.toLowerCase();
 //     if (shape == 'rectangle') {
-
-//         if (a && b) {
+//         if (typeof a === 'number' && typeof b === 'number') {
 //             return a * b;
 //         } else {
-//             return "Argument is missing"
+//             return "Rectangle needs 2 numeric arguments"
 //         }
 //     } else if (shape == 'triangle') {
-
-//         if (a && b && c) {
+//         if ([a, b, c].every(val => typeof val === 'number')) {
 //             let p = (a + b + c) / 2
 //             return Math.sqrt(p * (p - a) * (p - b) * (p - c))
 //         } else {
-//             return "For triangle need 3 arguments"
+//             return "Triangle needs 3 numeric arguments"
 //         }
-
 //     } else {
 //         return "Shape is wrong"
 //     }
@@ -92,6 +89,9 @@
     > Use try/catch to call this function and handle the error gracefully */
 
 // function safeDivide(a, b) {
+    // if (typeof a !== 'number' || typeof b !== 'number') {
+    //     throw new Error('Both arguments must be numbers');
+    // }
 //     if (b == 0) {
 //         throw new Error('B cannot be 0')
 //     }
@@ -121,7 +121,7 @@
     > Returns the sum of all numbers
     > Use arrow function and rest operator. */
 
-// const sumAll = (...numbers) => [...numbers].reduce((acc, el) => acc + el)
+// const sumAll = (...numbers) => numbers.reduce((acc, el) => acc + el)
 // console.log(sumAll(1, 2, 3, 4, 5))
 
 // --------------------------------------------------------------------------------------------
