@@ -1,0 +1,157 @@
+:root {
+  --primary-color: lightskyblue;
+  --secondary-color: violet;
+  --bg-light: whitesmoke;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    min-width: 60rem;
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 45%;
+    height: max-content;
+    min-height: 40rem;
+    margin: 0 auto;
+    margin-top: 7em;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 8px var(--bg-light);
+}
+
+main section h1 {
+    font-size: 2em;
+    color: white;
+    letter-spacing: 1em;
+}
+
+main section:first-child>div {
+    margin-bottom: 3rem;
+}
+
+main ul {
+    list-style-type: none;
+}
+
+ul li {
+    padding: 1em 0;
+    border-bottom: 0.2em solid rgba(185, 185, 185, 0.5);
+    font-size: 1.5rem;
+}
+
+.added {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 3rem;
+    padding: 0 1rem;
+    line-height: 3rem;
+    border-radius: 1rem;
+    background-color: whitesmoke;
+}
+
+.added input[type="checkbox"] {
+    display: none;
+}
+
+/* circle checkbox style */
+
+.circle-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.circle-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.circle-checkbox .checkMark {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-color: #ffffff;
+    position: relative;
+    transition: background 0.3s;
+}
+
+.circle-checkbox input:checked+.checkMark {
+    background: linear-gradient(var(--primary-color), var(--secondary-color));
+}
+
+.circle-checkbox input:checked+.checkMark::after {
+    content: "✓";
+    position: absolute;
+    top: -0.5rem;
+    left: 0.2rem;
+    font-size: 2em;
+    color: rgb(255, 255, 255);
+}
+
+/*   */
+
+.added input[type="text"] {
+    width: 85%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 1.5em;
+    background-color: whitesmoke;
+
+}
+
+.added input[type="button"] {
+    width: 5%;
+    height: 100%;
+    font-size: 1.5em;
+    color: gray;
+    background-color: whitesmoke;
+    cursor: pointer;
+}
+
+.added input[value="+"] {
+    font-size: 2.5em;
+}
+
+.item {
+    margin: 1rem 0;
+}
+
+.item:has(input[type="checkbox"]:checked) input[type="text"] {
+    text-decoration: line-through;
+    color: grey;
+}
+
+.filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 1.6em;
+    font-weight: bold;
+    color: whitesmoke;
+}
+
+.filter>div {
+    padding: 0 0.5rem;
+    cursor: pointer;
+}
+
+.filter>div:hover {
+    color: var(--primary-color);
+}

@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    min-width: 45rem;
+    background: linear-gradient(to bottom, purple 0rem, purple 15rem, white 15rem, white 100%);
+}
+
+main {
+    width: 50%;
+    height: max-content;
+    margin: 0 auto;
+    margin-top: 7em;
+    padding: 2em;
+    border-radius: 15px;
+    background-color: white;
+    box-shadow: 0px 0px 20px 8px purple;
+}
+
+main h1 {
+    color: purple;
+}
+
+main ul {
+    list-style-type: none;
+
+}
+
+ul li {
+    height: 5rem;
+    padding: 1em 0;
+    border-bottom: 0.2em solid rgba(185, 185, 185, 0.5);
+    font-size: 1.5rem;
+    transition: height 0.4s ease-out;
+}
+
+ul li.displayYes {
+    height: 13rem;
+}
+
+@media screen and (width < 1000px) {
+    main {
+        width: 60%;
+    }
+
+    ul li {
+        height: 6rem;
+    }
+
+    ul li.displayYes {
+        height: 17rem;
+    }
+}
+
+ul li p.question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+ul li p.question span {
+    min-width: 1.2em;
+    min-height: 1.2em;
+    border-radius: 50%;
+    background-color: blueviolet;
+    font-size: 2rem;
+    color: white;
+    text-align: center;
+}
+
+ul li p span::before {
+    content: "+";
+}
+
+ul li.displayYes p span::before {
+    content: "-";
+}
+
+ul li p.answer {
+    display: none;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+ul li.displayYes p.answer {
+    display: block;
+    height: max-content;
+}
