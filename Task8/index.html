@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="api.js"></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <main>
+        <section>
+            <div class="header">
+                <h1>TODO</h1>
+            </div>
+            <div class="added">
+                <label class="circle-checkbox">
+                    <input type="checkbox" name="done">
+                    <span class="checkMark"> </span>
+                </label>
+                <input type="text" name="todo" placeholder="Add a new task">
+                <input type="button" name="add" value="+">
+            </div>
+            <div class="todoList"></div>
+        </section>
+        
+        <section>
+            <div class="filter">
+                <div id="count"></div>
+                <div id="all" onclick="displayItem('all')">All</div>
+                <div id="active" onclick="displayItem('active')">Active</div>
+                <div id="completed" onclick="displayItem('completed')">Completed</div>
+                <div id="clear" onclick="displayItem('clearCompleted')">Clear Completed</div>
+            </div>
+        </section>
+
+    </main>
+</body>
+
+</html>

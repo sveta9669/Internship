@@ -6,8 +6,16 @@
     }, 0); */
 
 // function reduceCopy(array, func, initialValue) {
+    // if (!Array.isArray(array)) {
+    //     throw new TypeError('First argument must be an array');
+    // }
+    // if (typeof func !== 'function') {
+    //     throw new TypeError('Second argument must be a function');
+    // }
+    
 //     let acc, i;
-//     if (initialValue) {
+
+//     if (initialValue !== undefined) {
 //         acc = initialValue
 //         i = 0;
 //     } else {
