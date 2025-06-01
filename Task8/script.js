@@ -4,8 +4,6 @@ const countDiv = document.querySelector('#count')
 const itemInputText = document.querySelector('.added input[name="todo"]')
 const doneInput = document.querySelector('.added input[name="done"]')
 
-
-
 async function displayItem(type) {
     if (type !== 'all' && type !== 'active' && type !== 'completed' && type !== 'clearCompleted') {
         type = 'all'
@@ -31,6 +29,7 @@ async function displayItem(type) {
     }
 
     addClickToCheckbox()
+    editItem()
     leftItemCounts()
 }
 
@@ -58,6 +57,7 @@ async function addItem() {
     createItem(obj)
     leftItemCounts()
     addClickToCheckbox()
+    editItem()
 
 }
 
@@ -104,23 +104,25 @@ async function leftItemCounts() {
 
 
 displayItem('all')
-const editButtons = document.querySelectorAll('.edit-btn')
-console.log(editButtons)
-editButtons.forEach(el => {
-    el.addEventListener('click', function (e) {
-        console.log('yes')
-        if (e.target.classList.contains('edit-btn')) {
-            const item = e.target.closest('.item');
-            const input = item.querySelector('input[type="text"]');
-            const isEditable = !input.hasAttribute('readonly');
-            if (isEditable) {
-                input.setAttribute('readonly', true);
-                e.target.textContent = '✏️';
-            } else {
-                input.removeAttribute('readonly');
-                input.focus();
-                e.target.textContent = '✅';
+
+function editItem() {
+    const editButtons = document.querySelectorAll('.edit-btn')
+    editButtons.forEach(el => {
+        el.addEventListener('click', function (e) {
+            if (e.target.classList.contains('edit-btn')) {
+                const item = e.target.closest('.item');
+                const input = item.querySelector('input[type="text"]');
+                const isEditable = !input.hasAttribute('readonly');
+                if (isEditable) {
+                    input.setAttribute('readonly', true);
+                    e.target.textContent = '✏️';
+                    updateById(item, item.dataset.id, input.value)
+                } else {
+                    input.removeAttribute('readonly');
+                    input.focus();
+                    e.target.textContent = '✅';
+                }
             }
-        }
+        })
     })
-})
+}
