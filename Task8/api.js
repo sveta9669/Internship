@@ -51,26 +51,17 @@ async function addData(newItem) {
 
 async function updateById(item, itemID, itemText) {
     try {
-        let res;
-        if (itemID && itemText) {
-            res = await fetch(`http://localhost:3000/todo/${itemID}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text: itemText })
+        const id = itemID || item.id
+        const updatedItem = itemText ? { text: itemText } : { done: item.done }
 
-            })
-        } else {
-            res = await fetch(`http://localhost:3000/todo/${item.id}`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ done: item.done })
+        const res = await fetch(`http://localhost:3000/todo/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedItem)
 
-            })
-        }
+        })
 
         if (!res.ok) {
             throw new Error(`Failed to update: ${res.status}`)
@@ -82,12 +73,7 @@ async function updateById(item, itemID, itemText) {
 
 async function deleteItem(e) {
     try {
-        let key;
-        if (e.target) {
-            key = e.target.closest(".item").dataset.id
-        } else {
-            key = e
-        }
+        const key = e.target ? e.target.closest(".item").dataset.id : e
 
         const res = await fetch(`http://localhost:3000/todo/${key}`, {
             method: 'DELETE'

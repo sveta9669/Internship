@@ -4,6 +4,14 @@ const countDiv = document.querySelector('#count')
 const itemInputText = document.querySelector('.added input[name="todo"]')
 const doneInput = document.querySelector('.added input[name="done"]')
 
+
+itemInputText.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') addItem()
+})
+addButton.onclick = addItem
+
+displayItem('all')
+
 async function displayItem(type) {
     if (type !== 'all' && type !== 'active' && type !== 'completed' && type !== 'clearCompleted') {
         type = 'all'
@@ -33,7 +41,7 @@ async function displayItem(type) {
     leftItemCounts()
 }
 
-addButton.onclick = addItem
+
 
 async function addItem() {
     const itemText = itemInputText.value.trim()
@@ -103,7 +111,7 @@ async function leftItemCounts() {
 }
 
 
-displayItem('all')
+
 
 function editItem() {
     const editButtons = document.querySelectorAll('.edit-btn')
@@ -126,3 +134,35 @@ function editItem() {
         })
     })
 }
+
+// todoList.addEventListener('click', async (e) => {
+//   const item = e.target.closest('.item')
+//   const id = item?.dataset.id
+
+//   if (e.target.matches('.edit-btn')) {
+//     const input = item.querySelector('input[type="text"]')
+//     const isEditing = !input.hasAttribute('readonly')
+//     if (isEditing) {
+//       input.setAttribute('readonly', true)
+//       e.target.textContent = '✏️'
+//       await updateById(item, id, input.value)
+//     } else {
+//       input.removeAttribute('readonly')
+//       input.focus()
+//       e.target.textContent = '✅'
+//     }
+//   }
+
+//   if (e.target.matches('input[name="delete"]')) {
+//     await deleteItemById(id)
+//     item.remove()
+//     leftItemCounts()
+//   }
+
+//   if (e.target.matches('input[type="checkbox"]')) {
+//     const itemData = await getDataById(id)
+//     itemData.done = e.target.checked
+//     await updateById(itemData)
+//     leftItemCounts()
+//   }
+// })
