@@ -1,0 +1,39 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body:has(.banner){  background: url(blueBackground.jpg) no-repeat center center/cover; color: white; overflow: hidden;}
+main:has(.banner){  display: grid; grid-template-columns: 1fr 1.5fr; grid-template-rows: 1fr 1fr; gap: 50px; width: 60%; height: 100vh; margin: auto; padding: 50px;}
+.banner { padding: 50px; border-radius: 20px; background-color: #080c48bf; max-height: fit-content;}
+.banner.one { grid-row: 1/ span 2; display: flex; flex-direction: column; justify-content: space-between; gap: 40px;}
+.banner.two { grid-row: 1/2; padding-bottom: 25px;}
+.banner.three { grid-row: 2/3; padding-bottom: 25px;}
+.banner > div { width: 100%;}
+
+.banner progress {width: 100%; appearance: none; border-radius: 15px;}
+progress::-webkit-progress-bar { background-color: #7b7b7b; border-radius: 10px; height: 15px; }
+progress::-webkit-progress-value { background-color: #ffffff;  border-radius: 10px; height: 15px; }
+progress::-moz-progress-bar { background-color: #ffffff; border-radius: 10px; height: 15px; }
+
+.musicImageName { display: flex;}
+.musicImage { margin: auto;}
+.musicImage img {width: 100%; border-radius: 20px;}
+
+.musicTime > div{ margin: 25px 0;}
+.musicTime > div div{ font-size: 45px;}
+.musicTime div:first-child { display: flex; justify-content: space-around;}
+.musicTime div{ display: flex; justify-content: space-around; flex-wrap: nowrap; gap: 20px; font-size: 30px;}
+.musicTime div:nth-child(3) { justify-content: space-between;}
+
+.musicImageName { width: 100%; display: flex; justify-content: space-between; flex-wrap: nowrap; gap: 50px;}
+.musicImageName .musicName, 
+.musicImageName .musicImage { text-align: left;}
+.musicName p {margin-top: 15px; font-size: 30px; color: #b8b8b8;}
+
+.two .musicName { width: 65%;}
+.three .musicName { width: 65%;}
+.two .musicImage { width: 30%;}
+.three .musicImage { width: 30%;}
