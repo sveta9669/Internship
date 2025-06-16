@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router-dom'
-import './Todo.css'
+// import './Todo.css'
 import TodoItems from './TodoItems'
 import TodoInput from './TodoInput'
 import Filter from './Filter'

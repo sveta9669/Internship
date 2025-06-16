@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import './App.css';
+// import './App.css';
+import './index.css';
 import Todo from './components/todo/Todo';
 import Music from './components/music/Music';
 
@@ -15,5 +16,14 @@ function App() {
     </BrowserRouter>
   );
 }
+
+
+// function App() {
+//   return (
+//     <div className="bg-green-900 text-white p-6 text-2xl">
+//       ✅ Tailwind is now working!
+//     </div>
+//   );
+// }
 
 export default App;
