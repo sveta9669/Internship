@@ -28,7 +28,7 @@ body {
   padding-top: 5rem;
 }
 
-main {
+main.todoPageMain {
   /* width: 50%; */
   background-color: var(--primary-color);
   padding: 2rem;
@@ -38,7 +38,7 @@ main {
 }
 
 /* Header */
-main section h1 {
+main.todoPageMain section h1 {
   font-size: 3rem;
   text-align: center;
   color: var(--text-dark);
@@ -66,12 +66,10 @@ main section h1 {
   justify-content: center;
 }
 
-/* Hide real checkbox */
 .circle-checkbox input[type="checkbox"] {
   display: none;
 }
 
-/* Style the circle */
 .circle-checkbox .checkMark {
   width: 2rem;
   height: 2rem;
@@ -89,12 +87,12 @@ main section h1 {
 }
 
 /* Checkmark when checked */
-.circle-checkbox input:checked + .checkMark {
+.circle-checkbox input:checked+.checkMark {
   background-color: var(--secondary-color);
   border-color: var(--text-muted);
 }
 
-.circle-checkbox input:checked + .checkMark::after {
+.circle-checkbox input:checked+.checkMark::after {
   content: "✓";
   position: absolute;
   top: 0rem;
@@ -105,7 +103,6 @@ main section h1 {
   font-family: 'Georgia', serif;
 }
 
-/* Text input */
 .added input[type="text"] {
   flex: 1;
   height: 2.5rem;
@@ -128,20 +125,23 @@ main section h1 {
 }
 
 /* Add button */
-.added input[type="button"] {
+.added input[type="button"],
+.added input[type="submit"] {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 50%;
   background-color: var(--secondary-color);
   color: var(--text-dark);
   border: 1px solid var(--border-color);
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: 900;
   cursor: pointer;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.added input[type="button"]:hover {
+.added input[type="button"],
+.added input[type="submit"]:hover {
   background-color: #cbb897;
   transform: scale(1.1);
 }
@@ -158,13 +158,11 @@ main section h1 {
   padding-bottom: 0.5rem;
 }
 
-/* Line-through completed items */
 .item:has(input[type="checkbox"]:checked) input[type="text"] {
   text-decoration: line-through;
   color: #999;
 }
 
-/* Task text in list */
 .item input[type="text"] {
   flex: 1;
   font-size: 1.4rem;
@@ -187,14 +185,14 @@ main section h1 {
   border-top: 1px solid var(--border-color);
 }
 
-.filter > div {
+.filter>div {
   padding: 0.5rem;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.2s ease;
 }
 
-.filter > div:hover {
+.filter>div:hover {
   background-color: var(--paper-light);
   color: var(--text-muted);
 }

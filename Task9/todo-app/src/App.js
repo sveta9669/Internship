@@ -18,12 +18,4 @@ function App() {
 }
 
 
-// function App() {
-//   return (
-//     <div className="bg-green-900 text-white p-6 text-2xl">
-//       ✅ Tailwind is now working!
-//     </div>
-//   );
-// }
-
 export default App;

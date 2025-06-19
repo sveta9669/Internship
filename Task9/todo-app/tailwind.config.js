@@ -8,6 +8,9 @@ module.exports = {
       // width: {
       //   '65p': '65%', 
       // },
+      backgroundImage: {
+         'blueBackground': "url('./src/public/blueBackground.jpg')"
+        }
     },
   },
   plugins: [],
