@@ -1,0 +1,76 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "john.doe@example.com",
+      "password": "pass123",
+      "firstName": "John",
+      "lastName": "Doe"
+    },
+    {
+      "id": "2",
+      "email": "jane.smith@example.com",
+      "password": "qwerty",
+      "firstName": "Jane",
+      "lastName": "Smith"
+    },
+    {
+      "id": "3",
+      "email": "alex.moon@example.com",
+      "password": "moonshine",
+      "firstName": "Alex",
+      "lastName": "Moon"
+    },
+    {
+      "id": "4",
+      "email": "lisa.chan@example.com",
+      "password": "sunnydays",
+      "firstName": "Lisa",
+      "lastName": "Chan"
+    }
+  ],
+  "messages": [
+    {
+      "id": "1",
+      "senderId": 1,
+      "receiverId": 2,
+      "message": "Hey Jane, how are you?",
+      "timestamp": "2025-06-18T08:00:00Z"
+    },
+    {
+      "id": "2",
+      "senderId": 2,
+      "receiverId": 1,
+      "message": "Hi John! I'm good, thanks for asking.",
+      "timestamp": "2025-06-18T08:02:00Z"
+    },
+    {
+      "id": "3",
+      "senderId": 3,
+      "receiverId": 1,
+      "message": "Hey John, did you check the file?",
+      "timestamp": "2025-06-18T08:05:00Z"
+    },
+    {
+      "id": "4",
+      "senderId": 1,
+      "receiverId": 3,
+      "message": "Yes, I did. Looks great!",
+      "timestamp": "2025-06-18T08:07:00Z"
+    },
+    {
+      "id": "5",
+      "senderId": 4,
+      "receiverId": 2,
+      "message": "Hey Jane, want to catch up later?",
+      "timestamp": "2025-06-18T09:00:00Z"
+    },
+    {
+      "id": "6",
+      "senderId": 2,
+      "receiverId": 4,
+      "message": "Sure Lisa, what time?",
+      "timestamp": "2025-06-18T09:02:00Z"
+    }
+  ]
+}
