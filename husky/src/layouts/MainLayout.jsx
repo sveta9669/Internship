@@ -2,9 +2,9 @@ import Header from '../components/Header/header.jsx'
 
 function MainLayout({children}) {
     return (
-        <div>
-            <Header></Header>
-            {children}
+        <div className='min-h-screen bg-gray-100'>
+            <Header/>
+            <main className="p-4">{children}</main>
         </div>
     )
 }

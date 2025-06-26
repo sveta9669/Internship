@@ -1,5 +1,6 @@
-import { useState } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
+import { useState } from 'react'
+import { useAuth } from '../context/AuthContext'
 import api from '../services/api'
 
 
@@ -42,6 +43,7 @@ function AuthForm({ type }) {
 
     const navigate = useNavigate()
     const params = useParams()
+    const { login } = useAuth()
     const [formData, setFormData] = useState({});
 
     function handleChange(e) {
@@ -57,15 +59,17 @@ function AuthForm({ type }) {
                 if (res.data.length > 0) {
                     if (res.data[0].password === formData.password) {
                         navigate('/profile')
+                        login(res.data[0])
                     } else {
                         alert('Wrong Password')
                     }
                 } else {
                     alert('Wrong Email')
                 }
+                // console.log("authform ", user)
             } catch (err) {
                 console.log(err)
-            } 
+            }
         } else if (type === 'signup') {
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
@@ -77,7 +81,7 @@ function AuthForm({ type }) {
                     if (formData['password'] === formData['confirmPassword']) {
                         try {
                             const { confirmPassword, ...userData } = formData;
-                            await api.post("/users", { ...userData } )
+                            await api.post("/users", { ...userData })
                             navigate("/signin")
                         } catch (err) {
                             console.log(err)
@@ -89,7 +93,7 @@ function AuthForm({ type }) {
             } catch (err) {
                 console.log(err)
             }
-        }else if (type === 'forgotpass') {
+        } else if (type === 'forgotpass') {
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
                 console.log("forgotpass ", res)
