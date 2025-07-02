@@ -1,7 +1,6 @@
 import AuthLayout from "../../layout/AuthLayout";
 import AuthForm from "../../components/AuthForm";
 
-
 function SignIn() {
     
     return (

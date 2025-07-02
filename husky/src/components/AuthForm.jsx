@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import api from '../services/api'
 
-
 const fromTypes = {
     signin: {
         header: "Sign In",
@@ -47,86 +46,97 @@ function AuthForm({ type }) {
     const [formData, setFormData] = useState({});
     const [passwordError, setPasswordError] = useState(false);
     const [emailError, setEmailError] = useState(false);
-    const [confirmPassError, setConfirmPassError] = useState(false);
+    const [error, setError] = useState("");
 
     function handleChange(e) {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        setFormData({ ...formData, [e.target.name]: e.target.value.trimStart() });
     }
 
     async function handleSubmit(e) {
         e.preventDefault()
+        setError("");
         setEmailError(false);
         setPasswordError(false);
-        setConfirmPassError(false);
+
+        if (["signup", "signin", "forgotpass"].includes(type)) {
+            if (!formData.email || !formData.email.includes("@")) {
+                setError("Please enter a valid email.");
+                return;
+            }
+        }
+
+        if (["signup", "signin", "newpass"].includes(type)) {
+            if (!formData.password || formData.password.length < 6) {
+                setError("Password must be at least 6 characters.");
+                return;
+            }
+        }
+
+        if (["signup", "newpass"].includes(type)) {
+            if (formData.password !== formData.confirmPassword) {
+                setError("Passwords do not match.");
+                return;
+            }
+        }
+
         if (type === 'signin') {
+
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
-                console.log("sign in ", res)
                 if (res.data.length > 0) {
                     if (res.data[0].password === formData.password) {
                         navigate('/profile')
                         login(res.data[0])
                     } else {
-                        // alert('Wrong Password')
                         setPasswordError(true)
                     }
                 } else {
-                    // alert('Wrong Email')
                     setEmailError(true)
                 }
-                // console.log("authform ", user)
             } catch (err) {
                 console.log(err)
             }
+
         } else if (type === 'signup') {
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
-                console.log("sign up ", res)
 
                 if (res.data.length > 0) {
-                    // alert('Email already used !')
                     setEmailError(true)
 
                 } else {
-                    if (formData['password'] === formData['confirmPassword']) {
-                        try {
-                            const { confirmPassword, ...userData } = formData;
-                            await api.post("/users", { ...userData })
-                            navigate("/signin")
-                        } catch (err) {
-                            console.log(err)
-                        }
-                    } else {
-                        // alert('Incorrect password')
-                        setConfirmPassError(true)
+                    try {
+                        const { confirmPassword, ...userData } = formData;
+                        await api.post("/users", { ...userData })
+                        navigate("/signin")
+                    } catch (err) {
+                        console.log(err)
                     }
                 }
+
             } catch (err) {
                 console.log(err)
             }
         } else if (type === 'forgotpass') {
+
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
-                console.log("forgotpass ", res)
 
                 if (res.data.length > 0) {
                     navigate(`/newPass/${formData.email}`)
                 } else {
-                    // alert('Wrong Email')
                     setEmailError(true)
                 }
             } catch (err) {
                 console.log(err)
             }
+
         } else if (type === 'newpass') {
+
             try {
-                if (formData['password'] === formData['confirmPassword']) {
-                    const user = await api.get("/users", { params: { email: params.email } })
-                    await api.patch(`/users/${user.data[0].id}`, { password: formData['password'] })
-                    navigate("/signin")
-                } else {
-                    setConfirmPassError(true)
-                }
+                const user = await api.get("/users", { params: { email: params.email } })
+                await api.patch(`/users/${user.data[0].id}`, { password: formData['password'] })
+                navigate("/signin")
             } catch (err) {
                 console.log(err)
             }
@@ -162,10 +172,6 @@ function AuthForm({ type }) {
                         {passwordError && field === "password" && (
                             <sub className="text-red-500 text-xs mt-1 block">Incorrect password!</sub>
                         )}
-
-                        {confirmPassError && field === "confirmPassword" && (
-                            <sub className="text-red-500 text-xs mt-1 block">Passwords do not match!</sub>
-                        )}
                     </label>
                 </div>
             ))}
@@ -176,8 +182,8 @@ function AuthForm({ type }) {
                 </div>
             )}
 
+            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
             <button type="submit" className="w-full bg-purple-500 text-white rounded-lg py-2 font-medium hover:bg-purple-600 transition">{config.button}</button>
-
             <div className="text-center">
                 <Link to={config.bottomLink.to} className="text-black font-semibold text-sm hover:underline">{config.bottomLink.text}</Link>
             </div>

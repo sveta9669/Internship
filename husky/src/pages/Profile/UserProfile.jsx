@@ -17,6 +17,7 @@ function UserProfile() {
             setUpdatedUser(userData);
         }
     }, [user]);
+    
     if (!user || !updatedUser) return null;
     const { id, ...userData } = user;
 

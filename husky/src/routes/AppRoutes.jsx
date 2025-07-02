@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes, Navigate, Outlet } from "react-router-dom";
-// import ProtectedRoute from "../components/ProtectedRoute";
 import ForgotPassword from '../pages/Auth/ForgotPassword'
 import SignIn from '../pages/Auth/SignIn'
 import SignUp from '../pages/Auth/SignUp'
 import NewPassword from '../pages/Auth/NewPassword'
 import UserProfile from '../pages/Profile/UserProfile'
-import Dashboard from '../pages/Dashboard'
-import ChatPage from '../pages/ChatPage'
+import Dashboard from '../pages/Profile/Dashboard'
+import ChatPage from '../pages/Profile/ChatPage'
 
 const ProtectedRoute = () => {
   const userID = localStorage.getItem("userId");
