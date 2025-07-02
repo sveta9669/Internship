@@ -1,4 +1,4 @@
-import Header from '../components/Header/header.jsx'
+import Header from './header.jsx'
 
 function MainLayout({children}) {
     return (

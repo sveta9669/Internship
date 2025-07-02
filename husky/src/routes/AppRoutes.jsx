@@ -1,5 +1,5 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import ProtectedRoute from "../components/ProtectedRoute";
+import { BrowserRouter, Route, Routes, Navigate, Outlet } from "react-router-dom";
+// import ProtectedRoute from "../components/ProtectedRoute";
 import ForgotPassword from '../pages/Auth/ForgotPassword'
 import SignIn from '../pages/Auth/SignIn'
 import SignUp from '../pages/Auth/SignUp'
@@ -7,6 +7,11 @@ import NewPassword from '../pages/Auth/NewPassword'
 import UserProfile from '../pages/Profile/UserProfile'
 import Dashboard from '../pages/Dashboard'
 import ChatPage from '../pages/ChatPage'
+
+const ProtectedRoute = () => {
+  const userID = localStorage.getItem("userId");
+  return userID ? <Outlet /> : <Navigate to="/signin" replace />;
+};
 
 function AppRouters() {
     return (
@@ -16,15 +21,11 @@ function AppRouters() {
                 <Route path="/signUp" element={<SignUp />} ></Route>
                 <Route path="/forgotPass" element={<ForgotPassword />} ></Route>
                 <Route path="/newPass/:email" element={<NewPassword />} ></Route>
-                <Route path="/profile" element={
-                    <ProtectedRoute> <UserProfile /> </ProtectedRoute>
-                } ></Route>
-                <Route path="/dashboard" element={
-                    <ProtectedRoute> <Dashboard /> </ProtectedRoute>
-                } ></Route>
-                <Route path="/chat" element={
-                    <ProtectedRoute> <ChatPage /> </ProtectedRoute>
-                } ></Route>
+                <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chat" element={<ChatPage />} />
+        </Route>
                 <Route path="*" element={<SignIn />} ></Route>
             </Routes>
         </BrowserRouter>

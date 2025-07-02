@@ -1,5 +1,5 @@
-import AuthLayout from "../../layouts/AuthLayout";
-import AuthForm from "../../layouts/AuthForm";
+import AuthLayout from "../../layout/AuthLayout";
+import AuthForm from "../../components/AuthForm";
 
 function SignUp() {
     return (

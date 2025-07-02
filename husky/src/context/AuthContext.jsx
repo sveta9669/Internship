@@ -7,6 +7,44 @@ export const useAuth = () => useContext(AuthContext)
 function AuthProvider({ children }) {
 
     const [user, setUser] = useState({})
+    const [menuItems, setMenuItems] = useState([
+    {
+      id: 1,
+      name: "Home",
+      url: "/profile",
+      children: [],
+    },
+    {
+      id: 2,
+      name: "About Us",
+      url: "/about",
+      children: [],
+    },
+    {
+      id: 3,
+      name: "Blog",
+      url: "/blog",
+      children: [
+        { id: 4, name: "Client Success", url: "/blog/client" },
+        { id: 5, name: "5 greatest books", url: "/blog/books" },
+      ],
+    },
+    {
+      id: 6,
+      name: "Partners",
+      url: "/partners",
+      children: [
+        { id: 7, name: "Affiliate", url: "/partners/affiliate" },
+        { id: 8, name: "Sponsors", url: "/partners/sponsors" },
+      ],
+    },
+    {
+      id: 9,
+      name: "Contact Us",
+      url: "/chat",
+      children: [],
+    },
+  ]);
 
     useEffect(() => {
         const loadUser = async () => {
@@ -37,7 +75,7 @@ function AuthProvider({ children }) {
         setUser(null);
     };
     return (
-        <AuthContext.Provider value={{ user, setUser, login, logout }}>
+        <AuthContext.Provider value={{ user, setUser, login, logout, menuItems, setMenuItems }}>
             {children}
         </AuthContext.Provider>
     )

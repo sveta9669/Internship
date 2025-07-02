@@ -1,45 +1,13 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+import { Reorder } from "motion/react"
 
 function Dashboard() {
-  const [menuItems, setMenuItems] = useState([
-    {
-      id: 1,
-      name: "Home",
-      url: "/home",
-      children: [],
-    },
-    {
-      id: 2,
-      name: "About us",
-      url: "/about",
-      children: [],
-    },
-    {
-      id: 3,
-      name: "Blog",
-      url: "/blog",
-      children: [
-        { id: 4, name: "Client Success", url: "/blog/client" },
-        { id: 5, name: "5 greatest books", url: "/blog/books" },
-      ],
-    },
-    {
-      id: 6,
-      name: "Partners",
-      url: "/partners",
-      children: [
-        { id: 7, name: "Proof", url: "/partners/proof" },
-      ],
-    },
-    {
-      id: 8,
-      name: "Contact Us",
-      url: "/contact",
-      children: [],
-    },
-  ]);
 
+  const { menuItems, setMenuItems } = useAuth();
   const [newItem, setNewItem] = useState({ name: "", url: "" });
+  const navigate = useNavigate();
 
   const handleAdd = () => {
     if (!newItem.name.trim() || !newItem.url.trim()) return;
@@ -64,9 +32,8 @@ function Dashboard() {
 
   return (
     <div className="flex h-screen bg-gray-100 text-gray-800">
-      {/* Sidebar */}
       <div className="w-1/3 bg-white p-6 rounded-l-2xl shadow-md">
-        <button className="text-purple-500 mb-4 text-xl ">&larr; Back</button>
+        <button className="text-purple-500 mb-4 text-xl" onClick={() => navigate(-1)}> &#10229; Back</button>
         <div className="flex flex-col gap-4">
           <input
             placeholder="*Name"
@@ -88,40 +55,40 @@ function Dashboard() {
         </div>
       </div>
 
-      {/* Menu Items */}
       <div className="w-2/3 p-6 bg-white rounded-r-2xl shadow-md">
-        {menuItems.map((item) => (
-          <div key={item.id} className="mb-4">
-            <div className="flex justify-between items-center px-4 py-2 border rounded-md shadow-sm bg-gray-50">
-              <div>{item.name}</div>
-              <button
-                onClick={() => handleDelete(item.id)}
-                className="text-sm text-red-500 hover:underline"
-              >
-                X
-              </button>
-            </div>
+        <Reorder.Group values={menuItems} onReorder={setMenuItems}>
+          {menuItems.map((item) => (
+            <Reorder.Item key={item.id} value={item}>
 
-            {item.children.length > 0 && (
-              <div className="ml-6 mt-2 space-y-2">
-                {item.children.map((child) => (
-                  <div
-                    key={child.id}
-                    className="flex justify-between items-center px-4 py-2 border rounded-md bg-white shadow-sm"
-                  >
-                    <div>{child.name}</div>
-                    <button
-                      onClick={() => handleDelete(child.id, item.id)}
-                      className="text-sm text-red-500 hover:underline"
-                    >
-                      X
-                    </button>
+              <div key={item.id} className="mb-4">
+                <div className="flex justify-between items-center px-4 py-2 border rounded-md shadow-sm bg-gray-50">
+                  <div> &#8693; {item.name}</div>
+                  <button
+                    onClick={() => handleDelete(item.id)}
+                    className="text-sm text-gray-500 hover:underline"> X
+                  </button>
+                </div>
+
+                {item.children.length > 0 && (
+                  <div className="ml-6 mt-2 space-y-2">
+                    {item.children.map((child) => (
+                      <div
+                        key={child.id}
+                        className="flex justify-between items-center px-4 py-2 border rounded-md bg-white shadow-sm">
+                        <div> &#8693; {child.name}</div>
+                        <button
+                          onClick={() => handleDelete(child.id, item.id)}
+                          className="text-sm text-gray-500 hover:underline">
+                          X
+                        </button>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            )}
-          </div>
-        ))}
+            </Reorder.Item>
+          ))}
+        </Reorder.Group>
       </div>
     </div>
   );

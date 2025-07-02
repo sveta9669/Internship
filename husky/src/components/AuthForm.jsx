@@ -45,6 +45,9 @@ function AuthForm({ type }) {
     const params = useParams()
     const { login } = useAuth()
     const [formData, setFormData] = useState({});
+    const [passwordError, setPasswordError] = useState(false);
+    const [emailError, setEmailError] = useState(false);
+    const [confirmPassError, setConfirmPassError] = useState(false);
 
     function handleChange(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -52,6 +55,9 @@ function AuthForm({ type }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        setEmailError(false);
+        setPasswordError(false);
+        setConfirmPassError(false);
         if (type === 'signin') {
             try {
                 const res = await api.get("/users", { params: { email: formData.email } })
@@ -61,10 +67,12 @@ function AuthForm({ type }) {
                         navigate('/profile')
                         login(res.data[0])
                     } else {
-                        alert('Wrong Password')
+                        // alert('Wrong Password')
+                        setPasswordError(true)
                     }
                 } else {
-                    alert('Wrong Email')
+                    // alert('Wrong Email')
+                    setEmailError(true)
                 }
                 // console.log("authform ", user)
             } catch (err) {
@@ -76,7 +84,9 @@ function AuthForm({ type }) {
                 console.log("sign up ", res)
 
                 if (res.data.length > 0) {
-                    alert('Email already used !')
+                    // alert('Email already used !')
+                    setEmailError(true)
+
                 } else {
                     if (formData['password'] === formData['confirmPassword']) {
                         try {
@@ -87,7 +97,8 @@ function AuthForm({ type }) {
                             console.log(err)
                         }
                     } else {
-                        alert('Incorrect password')
+                        // alert('Incorrect password')
+                        setConfirmPassError(true)
                     }
                 }
             } catch (err) {
@@ -101,7 +112,8 @@ function AuthForm({ type }) {
                 if (res.data.length > 0) {
                     navigate(`/newPass/${formData.email}`)
                 } else {
-                    alert('Wrong Email')
+                    // alert('Wrong Email')
+                    setEmailError(true)
                 }
             } catch (err) {
                 console.log(err)
@@ -112,6 +124,8 @@ function AuthForm({ type }) {
                     const user = await api.get("/users", { params: { email: params.email } })
                     await api.patch(`/users/${user.data[0].id}`, { password: formData['password'] })
                     navigate("/signin")
+                } else {
+                    setConfirmPassError(true)
                 }
             } catch (err) {
                 console.log(err)
@@ -141,6 +155,17 @@ function AuthForm({ type }) {
                             required
                             className="w-full border border-gray-300 focus:ring-1 focus:ring-purple-500 rounded-md px-3 py-2 text-sm outline-none"
                         />
+                        {emailError && field === "email" && (
+                            <sub className="text-red-500 text-xs mt-1 block">Email is not found or already used!</sub>
+                        )}
+
+                        {passwordError && field === "password" && (
+                            <sub className="text-red-500 text-xs mt-1 block">Incorrect password!</sub>
+                        )}
+
+                        {confirmPassError && field === "confirmPassword" && (
+                            <sub className="text-red-500 text-xs mt-1 block">Passwords do not match!</sub>
+                        )}
                     </label>
                 </div>
             ))}
