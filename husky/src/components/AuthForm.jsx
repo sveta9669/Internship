@@ -1,42 +1,10 @@
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
+import { validateForm } from '../valiadion/authValidation'
 import api from '../services/api'
+import { constFormTypes } from '../const/constants'
 
-const fromTypes = {
-    signin: {
-        header: "Sign In",
-        fields: ["email", "password"],
-        fieldsName: ["Email", "Password"],
-        button: "Sign In",
-        bottomLink: { text: "Sign Up", to: "/signup" },
-        showForgotLink: true,
-    },
-    signup: {
-        header: "Sign Up",
-        fields: ["firstName", "lastName", "email", "password", "confirmPassword"],
-        fieldsName: ["First Name", "Last Name", "Email", "Password", "Confirm Password"],
-        button: "Sign Up",
-        bottomLink: { text: "Sign In", to: "/signin" },
-        showForgotLink: true,
-    },
-    forgotpass: {
-        header: "Forgot Password",
-        fields: ["email"],
-        fieldsName: ["Email"],
-        button: "Send",
-        bottomLink: { text: "Sign In", to: "/signin" },
-        showForgotLink: false,
-    },
-    newpass: {
-        header: "Create New Password",
-        fields: ["password", "confirmPassword"],
-        fieldsName: ["New Password", "Confirm Password"],
-        button: "Save",
-        bottomLink: { text: "Sign In", to: "/signin" },
-        showForgotLink: false,
-    },
-}
 
 function AuthForm({ type }) {
 
@@ -47,6 +15,7 @@ function AuthForm({ type }) {
     const [passwordError, setPasswordError] = useState(false);
     const [emailError, setEmailError] = useState(false);
     const [error, setError] = useState({});
+    const config = constFormTypes[type]
 
     function handleChange(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value.trimStart() });
@@ -58,25 +27,11 @@ function AuthForm({ type }) {
         setEmailError(false);
         setPasswordError(false);
 
-        if (["signup", "signin", "forgotpass"].includes(type)) {
-            if (!formData.email || !formData.email.includes("@")) {
-                setError({ email: "Please enter a valid email." });
-                return;
-            }
-        }
+        const errors = validateForm(type, formData);
 
-        if (["signup", "signin", "newpass"].includes(type)) {
-            if (!formData.password || formData.password.length < 6) {
-                setError({ password: "Password must be at least 6 characters." });
-                return;
-            }
-        }
-
-        if (["signup", "newpass"].includes(type)) {
-            if (formData.password !== formData.confirmPassword) {
-                setError({ confirmPassword: "Passwords do not match." });
-                return;
-            }
+        if (Object.keys(errors).length > 0) {
+            setError(errors);
+            return;
         }
 
         if (type === 'signin') {
@@ -143,7 +98,6 @@ function AuthForm({ type }) {
         }
     }
 
-    const config = fromTypes[type]
 
     return (
         <form onSubmit={handleSubmit} noValidate
@@ -159,7 +113,7 @@ function AuthForm({ type }) {
                             type={field.toLowerCase().includes("password")
                                 ? "password"
                                 : field.toLowerCase().includes("email")
-                                    ? "email"       
+                                    ? "email"
                                     : "text"}
                             onChange={handleChange}
                             className="w-full border border-gray-300 focus:ring-1 focus:ring-purple-500 rounded-md px-3 py-2 text-sm outline-none"
