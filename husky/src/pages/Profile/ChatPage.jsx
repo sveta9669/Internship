@@ -52,7 +52,6 @@ function ChatPage() {
         senderId: user.id,
         receiverId: selectedUser.id,
         message: text,
-        timestamp: new Date().toISOString(),
       };
       const res = await api.post("/messages", message);
       setMessages((prev) => [...prev, res.data]);

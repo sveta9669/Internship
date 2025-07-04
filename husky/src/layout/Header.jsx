@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function Header() {
@@ -8,30 +8,39 @@ function Header() {
             {menuItems.map((item) =>
                 item.children.length > 0 ? (
                     <div key={item.id} className="relative group">
-                        <Link to={item.url} className="hover:text-purple-500 transition">
+                        <NavLink to={item.url} className={({ isActive }) =>
+                            `transition hover:text-purple-500 ${
+                                isActive ? "text-purple-700 font-semibold" : ""
+                            }`
+                        }>
                             {item.name} <span>🡣</span>
-                        </Link>
+                        </NavLink>
                         <div className="absolute left-0 top-8 hidden group-hover:flex flex-col bg-white shadow-md rounded-md text-lg min-w-[10rem]">
                             {item.children.map((child) => (
-                                <Link
+                                <NavLink
                                     key={child.id}
                                     to={child.url}
                                     className="px-4 py-2 hover:bg-purple-100 transition">
                                     {child.name}
-                                </Link>
+                                </NavLink>
                             ))}
                         </div>
                     </div>
                 ) : (
-                    <Link key={item.id} to={item.url} className="hover:text-purple-500 transition">
+                    <NavLink key={item.id} to={item.url}
+                        className={({ isActive }) =>
+                            `transition hover:text-purple-500 ${
+                                isActive ? "text-purple-700 font-semibold" : ""
+                            }`
+                        }>
                         {item.name}
-                    </Link>
+                    </NavLink>
                 )
             )}
 
-            <Link to="/dashboard" className="w-12 h-12 flex items-center justify-center bg-purple-500 hover:bg-purple-600 text-white rounded-xl transition">
+            <NavLink to="/dashboard" className="w-12 h-12 flex items-center justify-center bg-purple-500 hover:bg-purple-600 text-white rounded-xl transition">
                 &#9998;
-            </Link>
+            </NavLink>
         </header>
     )
 }

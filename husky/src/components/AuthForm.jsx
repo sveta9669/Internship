@@ -46,7 +46,7 @@ function AuthForm({ type }) {
     const [formData, setFormData] = useState({});
     const [passwordError, setPasswordError] = useState(false);
     const [emailError, setEmailError] = useState(false);
-    const [error, setError] = useState("");
+    const [error, setError] = useState({});
 
     function handleChange(e) {
         setFormData({ ...formData, [e.target.name]: e.target.value.trimStart() });
@@ -54,27 +54,27 @@ function AuthForm({ type }) {
 
     async function handleSubmit(e) {
         e.preventDefault()
-        setError("");
+        setError({});
         setEmailError(false);
         setPasswordError(false);
 
         if (["signup", "signin", "forgotpass"].includes(type)) {
             if (!formData.email || !formData.email.includes("@")) {
-                setError("Please enter a valid email.");
+                setError({ email: "Please enter a valid email." });
                 return;
             }
         }
 
         if (["signup", "signin", "newpass"].includes(type)) {
             if (!formData.password || formData.password.length < 6) {
-                setError("Password must be at least 6 characters.");
+                setError({ password: "Password must be at least 6 characters." });
                 return;
             }
         }
 
         if (["signup", "newpass"].includes(type)) {
             if (formData.password !== formData.confirmPassword) {
-                setError("Passwords do not match.");
+                setError({ confirmPassword: "Passwords do not match." });
                 return;
             }
         }
@@ -146,7 +146,7 @@ function AuthForm({ type }) {
     const config = fromTypes[type]
 
     return (
-        <form onSubmit={handleSubmit}
+        <form onSubmit={handleSubmit} noValidate
             className="w-full max-w-sm bg-white p-8 rounded-2xl shadow-md space-y-6">
             <h2 className='text-2xl font-semibold text-center text-black'>{config.header}</h2>
 
@@ -159,10 +159,9 @@ function AuthForm({ type }) {
                             type={field.toLowerCase().includes("password")
                                 ? "password"
                                 : field.toLowerCase().includes("email")
-                                    ? "email"
+                                    ? "email"       
                                     : "text"}
                             onChange={handleChange}
-                            required
                             className="w-full border border-gray-300 focus:ring-1 focus:ring-purple-500 rounded-md px-3 py-2 text-sm outline-none"
                         />
                         {emailError && field === "email" && (
@@ -172,17 +171,20 @@ function AuthForm({ type }) {
                         {passwordError && field === "password" && (
                             <sub className="text-red-500 text-xs mt-1 block">Incorrect password!</sub>
                         )}
+
+                        {error[field] && (
+                            <sub className="text-red-500 text-xs mt-1 block">{error[field]}</sub>
+                        )}
                     </label>
                 </div>
             ))}
 
-            {config.showForgotLink && (
+            {config.showForgotLink &&
                 <div className="text-right text-sm">
                     <Link to="/forgotPass" className="text-purple-500 hover:underline">Forgot Password?</Link>
                 </div>
-            )}
+            }
 
-            {error && <p className="text-red-500 text-sm text-center">{error}</p>}
             <button type="submit" className="w-full bg-purple-500 text-white rounded-lg py-2 font-medium hover:bg-purple-600 transition">{config.button}</button>
             <div className="text-center">
                 <Link to={config.bottomLink.to} className="text-black font-semibold text-sm hover:underline">{config.bottomLink.text}</Link>

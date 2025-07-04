@@ -71,18 +71,27 @@ function Dashboard() {
 
                 {item.children.length > 0 && (
                   <div className="ml-6 mt-2 space-y-2">
-                    {item.children.map((child) => (
-                      <div
-                        key={child.id}
-                        className="flex justify-between items-center px-4 py-2 border rounded-md bg-white shadow-sm">
-                        <div> &#8693; {child.name}</div>
-                        <button
-                          onClick={() => handleDelete(child.id, item.id)}
-                          className="text-sm text-gray-500 hover:underline">
-                          X
-                        </button>
-                      </div>
-                    ))}
+                    <Reorder.Group values={item.children} onReorder={(newChildren) => {
+                      setMenuItems((prev) => prev.map((prevItem) =>
+                        prevItem.id === item.id ? { ...prevItem, children: newChildren } : prevItem
+                      )
+                      )
+                    }}>
+                      {item.children.map((child) => (
+                        <Reorder.Item key={child.id} value={child}>
+                          <div
+                            key={child.id}
+                            className="flex justify-between items-center px-4 py-2 border rounded-md bg-white shadow-sm">
+                            <div> &#8693; {child.name}</div>
+                            <button
+                              onClick={() => handleDelete(child.id, item.id)}
+                              className="text-sm text-gray-500 hover:underline">
+                              X
+                            </button>
+                          </div>
+                        </Reorder.Item>
+                      ))}
+                    </Reorder.Group>
                   </div>
                 )}
               </div>

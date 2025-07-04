@@ -38,71 +38,67 @@
       "id": "1",
       "senderId": 1,
       "receiverId": 2,
-      "message": "Hey Jane, how are you?",
-      "timestamp": "2025-06-18T08:00:00Z"
+      "message": "Hey Jane, how are you?"
     },
     {
       "id": "2",
       "senderId": 2,
       "receiverId": 1,
-      "message": "Hi John! I'm good, thanks for asking.",
-      "timestamp": "2025-06-18T08:02:00Z"
+      "message": "Hi John! I'm good, thanks for asking."
     },
     {
       "id": "3",
       "senderId": 3,
       "receiverId": 1,
-      "message": "Hey John, did you check the file?",
-      "timestamp": "2025-06-18T08:05:00Z"
+      "message": "Hey John, did you check the file?"
     },
     {
       "id": "4",
       "senderId": 1,
       "receiverId": 3,
-      "message": "Yes, I did. Looks great!",
-      "timestamp": "2025-06-18T08:07:00Z"
+      "message": "Yes, I did. Looks great!"
     },
     {
       "id": "5",
       "senderId": 4,
       "receiverId": 2,
-      "message": "Hey Jane, want to catch up later?",
-      "timestamp": "2025-06-18T09:00:00Z"
+      "message": "Hey Jane, want to catch up later?"
     },
     {
       "id": "6",
       "senderId": 2,
       "receiverId": 4,
-      "message": "Sure Lisa, what time?",
-      "timestamp": "2025-06-18T09:02:00Z"
+      "message": "Sure Lisa, what time?"
     },
     {
       "id": "7",
       "senderId": 4,
       "receiverId": 2,
-      "message": "1 PM",
-      "timestamp": "2025-06-18T09:02:00Z"
+      "message": "1 PM"
     },
     {
       "id": "93a1",
       "senderId": "4",
       "receiverId": "3",
-      "message": "Hello",
-      "timestamp": "2025-07-02T12:14:38.788Z"
+      "message": "Hello"
     },
     {
       "id": "6cf3",
       "senderId": "4",
       "receiverId": "1",
-      "message": "Hiii",
-      "timestamp": "2025-07-02T12:15:18.137Z"
+      "message": "Hiii"
     },
     {
       "id": "0ec2",
       "senderId": "2",
       "receiverId": "4",
-      "message": "it so early",
-      "timestamp": "2025-07-02T13:13:56.174Z"
+      "message": "it so early"
+    },
+    {
+      "id": "abba",
+      "senderId": "4",
+      "receiverId": "1",
+      "message": "hello"
     }
   ]
 }
